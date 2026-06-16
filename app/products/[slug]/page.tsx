@@ -1,11 +1,10 @@
-'use client';
-
+// app/products/[slug]/page.tsx
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import ScrollButton from "./ScrollButton";
 
-// 产品数据映射表（slug -> 产品详情）
+// 产品数据（保持不变）
 const productData: Record<string, any> = {
   "whey-isolate": {
     name: "分离乳清蛋白粉",
@@ -73,21 +72,12 @@ const productData: Record<string, any> = {
   },
 };
 
-export default function ProductPage({ params }: { params: Promise<{ slug: string }> }) {
-  // 使用 React.use() 解包 params Promise
-  const { slug } = React.use(params);
-  const product = productData[slug];
+export default function ProductPage({ params }: { params: { slug: string } }) {
+  const product = productData[params.slug];
   if (!product) notFound();
 
   const hasMultiImages = product.images && product.images.length > 0;
-  const isFiber = slug === "fiber";
-
-  const scrollToDetail = () => {
-    const element = document.getElementById("product-detail");
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
-  };
+  const isFiber = params.slug === "fiber";
 
   return (
     <div className="min-h-screen bg-white font-sans antialiased text-slate-800">
@@ -118,7 +108,6 @@ export default function ProductPage({ params }: { params: Promise<{ slug: string
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-20">
         <div className="flex justify-center">
           <div className="grid md:grid-cols-2 gap-8 items-center w-full max-w-4xl">
-            {/* 产品主图 */}
             <div className="bg-slate-50 rounded-2xl p-6 flex items-center justify-center">
               <Image
                 src={product.image}
@@ -126,14 +115,11 @@ export default function ProductPage({ params }: { params: Promise<{ slug: string
                 width={300}
                 height={300}
                 className={`object-contain ${
-                  isFiber
-                    ? "w-full max-w-[270px]"
-                    : "w-2/3 max-w-[180px]"
+                  isFiber ? "w-full max-w-[270px]" : "w-2/3 max-w-[180px]"
                 }`}
                 unoptimized
               />
             </div>
-            {/* 右侧文字区域 */}
             <div className="max-w-[260px] justify-self-center space-y-2">
               <h1 className="text-xl font-bold text-slate-900 leading-tight">
                 {product.fullName || product.name}
@@ -154,7 +140,6 @@ export default function ProductPage({ params }: { params: Promise<{ slug: string
                   ))}
                 </ul>
               </div>
-              {/* 双按钮并排 */}
               <div className="pt-1 flex flex-wrap gap-2">
                 <Link
                   href="/products"
@@ -162,18 +147,12 @@ export default function ProductPage({ params }: { params: Promise<{ slug: string
                 >
                   返回产品列表
                 </Link>
-                <button
-                  onClick={scrollToDetail}
-                  className="inline-block bg-blue-900 hover:bg-blue-800 text-white px-4 py-1.5 rounded-md font-semibold text-xs transition"
-                >
-                  下滑查看产品详情
-                </button>
+                <ScrollButton />
               </div>
             </div>
           </div>
         </div>
 
-        {/* 详情图展示区 */}
         <div id="product-detail" className="mt-16 scroll-mt-20">
           <div className="border-t border-slate-100 pt-10">
             <h2 className="text-2xl font-bold text-slate-900 text-center mb-6">产品详情</h2>
