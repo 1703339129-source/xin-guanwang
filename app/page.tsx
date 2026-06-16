@@ -36,7 +36,7 @@ export default function HomePage() {
             <button onClick={goHome} className="flex items-center focus:outline-none">
               <Image 
                 src="/logo.jpg" 
-                alt="CareVita 凯维他 Logo" 
+                alt="Carevita 凯维他 Logo" 
                 width={120}
                 height={40}
                 className="h-10 w-auto object-contain"
@@ -77,16 +77,17 @@ export default function HomePage() {
         <div className="relative z-10 w-full mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="max-w-md text-left">
             <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900 leading-tight">
-              凯维他CareVita
+              Carevita 凯维他™
             </h1>
             <p className="mt-2 text-xl sm:text-2xl font-semibold text-slate-800">
               中国严肃医学营养领航品牌
             </p>
             <p className="mt-2 text-sm sm:text-base font-medium text-slate-700">
-              精准营养，凯维他“为健康赋能”
+              精准营养，凯维他为健康赋能
             </p>
             <p className="mt-1 text-xs text-slate-600 leading-relaxed">
-              为中国家庭提供安全、有效、高性价比的专业营养解决方案。
+              {/* 删去了“为中国家庭” */}
+              提供安全、有效、高性价比的专业营养解决方案。
             </p>
             <div className="mt-4 h-14"></div>
             <div className="mt-2 flex flex-wrap gap-4">
@@ -179,7 +180,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 普惠级高性价比 - 使用 family.jpg，保留原始比例 */}
+      {/* 普惠级高性价比 */}
       <div className="relative">
         <img 
           src="/family.jpg" 
@@ -215,10 +216,32 @@ export default function HomePage() {
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
-              { name: "分离乳清蛋白粉", img: "/product-whey-blue.jpg", slug: "whey-isolate", features: ["100%美国进口分离乳清", "85%高蛋白质含量", "小分子蛋白，极易吸收"] },
-              { name: "HMB 乳清蛋白粉", img: "/product-whey-green.jpg", slug: "hmb-whey", features: ["100%进口乳清奶源", "特别添加 CaHMB 核心成分", "科学护肌强韧骨骼"] },
-              { name: "水溶性膳食纤维粉", img: "/product-fiber.jpg", slug: "fiber", features: ["100%智利进口高品质原粉", "长链科学膳食结构", "特别添加低聚果糖益生元"] },
-              { name: "乐酚鱼油软胶囊", img: "/product-fishoil.jpg", slug: "fish-oil", features: ["来自挪威金牌 EPAX 源头", "90%超高纯度 OMEGA-3", "rTG 黄金人体吸收结构"] }
+              { 
+                name: "分离乳清蛋白粉", 
+                img: "/product-whey-blue.jpg", 
+                slug: "whey-isolate", 
+                features: ["100%美国进口分离乳清", "85%高蛋白含量", "小分子蛋白，极易吸收"] 
+              },
+              { 
+                name: "HMB 乳清蛋白粉", 
+                img: "/product-whey-green.jpg", 
+                slug: "hmb-whey", 
+                features: ["100%进口乳清粉", "特别添加 CaHMB 核心成分", "科学护肌强韧骨骼"] 
+              },
+              { 
+                name: "水溶性膳食纤维粉", 
+                img: "/product-fiber.jpg", 
+                slug: "fiber", 
+                // 修改“长链”为“长短链”
+                features: ["100%智利进口高品质原粉", "长短链科学膳食结构", "特别添加低聚果糖益生元"] 
+              },
+              { 
+                name: "乐酚鱼油软胶囊", 
+                img: "/product-fishoil.jpg", 
+                slug: "fish-oil", 
+                // 修改“rTG”为“TGN”
+                features: ["来自挪威金牌 EPAX 源头", "90%超高纯度 OMEGA-3", "TGN 黄金人体吸收结构"] 
+              }
             ].map((product, idx) => (
               <div key={idx} className="bg-white rounded-2xl border border-slate-100 shadow-sm transition-all hover:shadow-lg overflow-hidden flex flex-col">
                 <div className="relative h-56 w-full bg-slate-50 overflow-hidden">
@@ -247,7 +270,7 @@ export default function HomePage() {
       >
         <div className="absolute inset-0 bg-black/50"></div>
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center text-white">
-          <h2 className="text-3xl font-extrabold">凯维他 CareVita</h2>
+          <h2 className="text-3xl font-extrabold">Carevita 凯维他</h2>
           <p className="mt-4 text-sm max-w-xl mx-auto opacity-90">
             每一次选择健康，都离更好的自己更近一步<br />
             凯维他，一路与您同行
@@ -258,7 +281,7 @@ export default function HomePage() {
             <p>📍 地址：中国上海市某某区某某路123号</p>
           </div>
           <div className="mt-12 pt-8 border-t border-white/20 text-xs opacity-80">
-            <p>© 2026 CareVita 凯维他版权所有 | 中国严肃医学营养领航品牌</p>
+            <p>© 2026 Carevita 凯维他版权所有 | 中国严肃医学营养领航品牌</p>
             <p className="mt-2">隐私政策 | 服务条款</p>
           </div>
         </div>

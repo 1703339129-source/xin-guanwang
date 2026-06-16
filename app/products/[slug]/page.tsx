@@ -1,10 +1,11 @@
-// app/products/[slug]/page.tsx
+'use client';
+
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import ScrollButton from "./ScrollButton";
 
-// 产品数据（保持不变）
+// 产品数据映射表（slug -> 产品详情）
 const productData: Record<string, any> = {
   "whey-isolate": {
     name: "分离乳清蛋白粉",
@@ -57,7 +58,8 @@ const productData: Record<string, any> = {
     ],
     规格: "400克",
     主要成分: "100%智利进口高品质膳食纤维",
-    特点: ["智利进口菊粉", "长短链科学配比", "特别添加低聚木糖", "纯净配方"],
+    // 已经包含“长短链”，无需修改
+   特点: ["智利进口菊粉", "长短链科学配比", "特别添加低聚木糖", "纯净配方"],
     适用人群: "便秘人群、需控制体重者、膳食纤维摄入不足者",
   },
   "fish-oil": {
@@ -67,22 +69,25 @@ const productData: Record<string, any> = {
     detailImage: "",
     规格: "400克",
     主要成分: "挪威进口EPAX®鱼油",
-    特点: ["来自挪威金牌EPAX源头", "90%超高纯度OMEGA-3", "rTG黄金结构", "高效吸收"],
+    // 将“rTG黄金结构”改为“TGN黄金结构”
+    特点: ["来自挪威金牌EPAX源头", "90%超高纯度OMEGA-3", "TGN黄金结构", "高效吸收"],
     适用人群: "血脂偏高者、中老年人心脑血管保健",
   },
 };
 
-type PageProps = {
-  params: Promise<{ slug: string }>;
-};
-
-export default async function ProductPage({ params }: PageProps) {
-  const { slug } = await params;
-  const product = productData[slug];
+export default function ProductPage({ params }: { params: { slug: string } }) {
+  const product = productData[params.slug];
   if (!product) notFound();
 
   const hasMultiImages = product.images && product.images.length > 0;
-  const isFiber = slug === "fiber";
+  const isFiber = params.slug === "fiber";
+
+  const scrollToDetail = () => {
+    const element = document.getElementById("product-detail");
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
 
   return (
     <div className="min-h-screen bg-white font-sans antialiased text-slate-800">
@@ -93,7 +98,7 @@ export default async function ProductPage({ params }: PageProps) {
             <Link href="/" className="flex items-center space-x-2">
               <Image
                 src="/logo.jpg"
-                alt="CareVita Logo"
+                alt="Carevita Logo"
                 width={120}
                 height={40}
                 className="h-10 w-auto object-contain"
@@ -152,7 +157,12 @@ export default async function ProductPage({ params }: PageProps) {
                 >
                   返回产品列表
                 </Link>
-                <ScrollButton />
+                <button
+                  onClick={scrollToDetail}
+                  className="inline-block bg-blue-900 hover:bg-blue-800 text-white px-4 py-1.5 rounded-md font-semibold text-xs transition"
+                >
+                  下滑查看产品详情
+                </button>
               </div>
             </div>
           </div>
@@ -190,7 +200,7 @@ export default async function ProductPage({ params }: PageProps) {
       </main>
 
       <footer className="bg-slate-900 py-8 text-center text-slate-400 text-xs">
-        <p>© 2026 CareVita 凯维他版权所有 | 中国严肃医学营养领航品牌</p>
+        <p>© 2026 Carevita 凯维他版权所有 | 中国严肃医学营养领航品牌</p>
         <p className="mt-2">隐私政策 | 服务条款</p>
       </footer>
     </div>
