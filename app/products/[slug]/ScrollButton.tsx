@@ -1,4 +1,3 @@
-// app/products/[slug]/ScrollButton.tsx
 'use client';
 
 export default function ScrollButton() {
