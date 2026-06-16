@@ -1,11 +1,8 @@
-'use client';
-
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import ScrollButton from "./ScrollButton";
 
-// 产品数据映射表（slug -> 产品详情）
 const productData: Record<string, any> = {
   "whey-isolate": {
     name: "分离乳清蛋白粉",
@@ -73,19 +70,13 @@ const productData: Record<string, any> = {
   },
 };
 
-export default function ProductPage({ params }: { params: { slug: string } }) {
-  const product = productData[params.slug];
+export default async function ProductPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const product = productData[slug];
   if (!product) notFound();
 
   const hasMultiImages = product.images && product.images.length > 0;
-  const isFiber = params.slug === "fiber";
-
-  const scrollToDetail = () => {
-    const element = document.getElementById("product-detail");
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
-  };
+  const isFiber = slug === "fiber";
 
   return (
     <div className="min-h-screen bg-white font-sans antialiased text-slate-800">
@@ -122,9 +113,7 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
                 alt={product.name}
                 width={300}
                 height={300}
-                className={`object-contain ${
-                  isFiber ? "w-full max-w-[270px]" : "w-2/3 max-w-[180px]"
-                }`}
+                className={`object-contain ${isFiber ? "w-full max-w-[270px]" : "w-2/3 max-w-[180px]"}`}
                 unoptimized
               />
             </div>
@@ -135,17 +124,13 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
               <div className="space-y-0.5 text-xs text-slate-600">
                 <p><span className="font-semibold">规格：</span>{product.规格}</p>
                 <p><span className="font-semibold">主要成分：</span>{product.主要成分}</p>
-                {product.蛋白质含量 && (
-                  <p><span className="font-semibold">蛋白质含量：</span>{product.蛋白质含量}</p>
-                )}
+                {product.蛋白质含量 && <p><span className="font-semibold">蛋白质含量：</span>{product.蛋白质含量}</p>}
                 <p><span className="font-semibold">适用人群：</span>{product.适用人群}</p>
               </div>
               <div>
                 <h2 className="text-sm font-bold text-slate-900">产品特点</h2>
                 <ul className="mt-0.5 list-disc list-inside text-xs text-slate-600 space-y-0">
-                  {product.特点.map((f: string, i: number) => (
-                    <li key={i}>{f}</li>
-                  ))}
+                  {product.特点.map((f: string, i: number) => <li key={i}>{f}</li>)}
                 </ul>
               </div>
               <div className="pt-1 flex flex-wrap gap-2">
@@ -155,12 +140,7 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
                 >
                   返回产品列表
                 </Link>
-                <button
-                  onClick={scrollToDetail}
-                  className="inline-block bg-blue-900 hover:bg-blue-800 text-white px-4 py-1.5 rounded-md font-semibold text-xs transition"
-                >
-                  下滑查看产品详情
-                </button>
+                <ScrollButton />
               </div>
             </div>
           </div>
@@ -173,23 +153,14 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
               <div className="flex flex-col items-center gap-6">
                 {product.images.map((img: string, idx: number) => (
                   <div key={idx} className="flex justify-center">
-                    <img
-                      src={img}
-                      alt={`${product.name} 详情图 ${idx + 1}`}
-                      className="max-w-sm w-full h-auto object-contain rounded-lg shadow-md"
-                    />
+                    <img src={img} alt={`${product.name} 详情图 ${idx + 1}`} className="max-w-sm w-full h-auto object-contain rounded-lg shadow-md" />
                   </div>
                 ))}
               </div>
             ) : (
-              product.detailImage &&
-              product.detailImage !== "" && (
+              product.detailImage && product.detailImage !== "" && (
                 <div className="flex justify-center">
-                  <img
-                    src={product.detailImage}
-                    alt={`${product.name} 详情图`}
-                    className="max-w-sm w-full h-auto object-contain rounded-2xl shadow-md"
-                  />
+                  <img src={product.detailImage} alt={`${product.name} 详情图`} className="max-w-sm w-full h-auto object-contain rounded-2xl shadow-md" />
                 </div>
               )
             )}
