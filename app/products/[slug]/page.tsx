@@ -1,4 +1,3 @@
-// updated
 // app/products/[slug]/page.tsx
 import { notFound } from "next/navigation";
 import Image from "next/image";
@@ -73,12 +72,17 @@ const productData: Record<string, any> = {
   },
 };
 
-export default function ProductPage({ params }: { params: { slug: string } }) {
-  const product = productData[params.slug];
+type PageProps = {
+  params: Promise<{ slug: string }>;
+};
+
+export default async function ProductPage({ params }: PageProps) {
+  const { slug } = await params;
+  const product = productData[slug];
   if (!product) notFound();
 
   const hasMultiImages = product.images && product.images.length > 0;
-  const isFiber = params.slug === "fiber";
+  const isFiber = slug === "fiber";
 
   return (
     <div className="min-h-screen bg-white font-sans antialiased text-slate-800">
