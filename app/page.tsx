@@ -68,11 +68,11 @@ export default function HomePage() {
 
       <div className="h-20"></div>
 
-      {/* 首屏主视觉区 - 使用 .png 图片 */}
+      {/* 首屏主视觉区 */}
       <section 
         id="hero" 
         className="relative overflow-hidden bg-cover bg-center bg-no-repeat min-h-[calc(100vh-5rem)] flex items-center"
-        style={{ backgroundImage: "url('/首屏产品图.png')" }}
+        style={{ backgroundImage: "url('/首屏产品图.jpg')" }}
       >
         <div className="relative z-10 w-full mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="max-w-md text-left">
@@ -179,28 +179,32 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 普惠级高性价比 - 使用 .png 图片 */}
-      <section 
-        className="relative bg-cover bg-center bg-no-repeat min-h-[calc(100vh-5rem)] flex items-center"
-        style={{ backgroundImage: "url('/全家福.png')" }}
-      >
-        <div className="relative z-10 w-full mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="max-w-md text-left">
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 leading-tight">
-              普惠级高性价比
-            </h2>
-            <p className="mt-4 text-sm sm:text-base text-slate-700 leading-relaxed">
-              摒弃行业过度营销与层层溢价
-            </p>
-            <p className="mt-2 text-sm sm:text-base text-slate-700 leading-relaxed">
-              坚持 “院线级”品质，“极致”高性价比
-            </p>
-            <p className="mt-2 text-sm sm:text-base text-slate-700 leading-relaxed">
-              让专业营养无门槛
-            </p>
+      {/* 普惠级高性价比 - 使用 family.jpg，保留原始比例 */}
+      <div className="relative">
+        <img 
+          src="/family.jpg" 
+          alt="全家福" 
+          className="w-full h-auto block"
+        />
+        <div className="absolute inset-0 flex items-center">
+          <div className="w-full mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div className="max-w-md text-left">
+              <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 leading-tight">
+                普惠级高性价比
+              </h2>
+              <p className="mt-4 text-sm sm:text-base text-slate-700 leading-relaxed">
+                摒弃行业过度营销与层层溢价
+              </p>
+              <p className="mt-2 text-sm sm:text-base text-slate-700 leading-relaxed">
+                坚持 “院线级”品质，“极致”高性价比
+              </p>
+              <p className="mt-2 text-sm sm:text-base text-slate-700 leading-relaxed">
+                让专业营养无门槛
+              </p>
+            </div>
           </div>
         </div>
-      </section>
+      </div>
 
       {/* 产品矩阵展示区 */}
       <section id="products-matrix" className="py-20 bg-slate-50/60 border-t border-slate-100">
@@ -235,7 +239,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 底部区域：山川背景 */}
+      {/* 底部区域 */}
       <footer 
         id="contact" 
         className="relative py-20 bg-cover bg-center bg-no-repeat"
