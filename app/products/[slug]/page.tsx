@@ -1,3 +1,4 @@
+// updated
 // app/products/[slug]/page.tsx
 import { notFound } from "next/navigation";
 import Image from "next/image";
