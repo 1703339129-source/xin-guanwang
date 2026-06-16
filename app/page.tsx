@@ -68,11 +68,11 @@ export default function HomePage() {
 
       <div className="h-20"></div>
 
-      {/* 首屏主视觉区 - 恢复为背景图，不改变原图画质 */}
+      {/* 首屏主视觉区 - 使用 .png 图片 */}
       <section 
         id="hero" 
         className="relative overflow-hidden bg-cover bg-center bg-no-repeat min-h-[calc(100vh-5rem)] flex items-center"
-        style={{ backgroundImage: "url('/首屏产品图.jpg')" }}
+        style={{ backgroundImage: "url('/首屏产品图.png')" }}
       >
         <div className="relative z-10 w-full mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="max-w-md text-left">
@@ -179,7 +179,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 普惠级高性价比 - 背景图已改为 /全家福.png */}
+      {/* 普惠级高性价比 - 使用 .png 图片 */}
       <section 
         className="relative bg-cover bg-center bg-no-repeat min-h-[calc(100vh-5rem)] flex items-center"
         style={{ backgroundImage: "url('/全家福.png')" }}
