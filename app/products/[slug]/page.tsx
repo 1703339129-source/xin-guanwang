@@ -1,3 +1,4 @@
+// app/products/[slug]/page.tsx
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
@@ -53,8 +54,7 @@ const productData: Record<string, any> = {
       "/详情6_10.jpg",
       "/详情6_11.jpg",
     ],
-    // 修改规格
-    规格: "200克（10克✖20）",
+    规格: "200克（10克×20）",
     主要成分: "100%智利进口高品质膳食纤维",
     特点: ["智利进口菊粉", "长短链科学配比", "特别添加低聚木糖", "纯净配方"],
     适用人群: "便秘人群、需控制体重者、膳食纤维摄入不足者",
@@ -64,7 +64,6 @@ const productData: Record<string, any> = {
     fullName: "乐酚鱼油软胶囊",
     image: "/product-fishoil.jpg",
     detailImage: "",
-    // 修改规格
     规格: "61.2g(0.68g/粒×90）",
     主要成分: "挪威进口EPAX®鱼油",
     特点: ["来自挪威金牌EPAX源头", "90%超高纯度OMEGA-3", "TGN黄金结构", "高效吸收"],
@@ -78,7 +77,8 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
   if (!product) notFound();
 
   const hasMultiImages = product.images && product.images.length > 0;
-  const isFiber = slug === "fiber";
+  // 水溶性膳食纤维粉和乐酚鱼油软胶囊使用放大尺寸
+  const isLargeImage = slug === "fiber" || slug === "fish-oil";
 
   return (
     <div className="min-h-screen bg-white font-sans antialiased text-slate-800">
@@ -109,13 +109,16 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-20">
         <div className="flex justify-center">
           <div className="grid md:grid-cols-2 gap-8 items-center w-full max-w-4xl">
+            {/* 产品主图 - 两个产品放大一倍 */}
             <div className="bg-slate-50 rounded-2xl p-6 flex items-center justify-center">
               <Image
                 src={product.image}
                 alt={product.name}
-                width={300}
-                height={300}
-                className={`object-contain ${isFiber ? "w-full max-w-[270px]" : "w-2/3 max-w-[180px]"}`}
+                width={400}
+                height={400}
+                className={`object-contain ${
+                  isLargeImage ? "w-full max-w-[360px]" : "w-2/3 max-w-[180px]"
+                }`}
                 unoptimized
               />
             </div>
@@ -155,14 +158,22 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
               <div className="flex flex-col items-center gap-6">
                 {product.images.map((img: string, idx: number) => (
                   <div key={idx} className="flex justify-center">
-                    <img src={img} alt={`${product.name} 详情图 ${idx + 1}`} className="max-w-sm w-full h-auto object-contain rounded-lg shadow-md" />
+                    <img
+                      src={img}
+                      alt={`${product.name} 详情图 ${idx + 1}`}
+                      className="max-w-sm w-full h-auto object-contain rounded-lg shadow-md"
+                    />
                   </div>
                 ))}
               </div>
             ) : (
               product.detailImage && product.detailImage !== "" && (
                 <div className="flex justify-center">
-                  <img src={product.detailImage} alt={`${product.name} 详情图`} className="max-w-sm w-full h-auto object-contain rounded-2xl shadow-md" />
+                  <img
+                    src={product.detailImage}
+                    alt={`${product.name} 详情图`}
+                    className="max-w-sm w-full h-auto object-contain rounded-2xl shadow-md"
+                  />
                 </div>
               )
             )}
