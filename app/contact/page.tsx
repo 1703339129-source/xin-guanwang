@@ -30,45 +30,45 @@ export default function ContactPage() {
           <p className="mt-4 text-slate-500 max-w-xl mx-auto">我们期待与您沟通，为您提供专业的营养健康服务。</p>
         </div>
 
-        <div className="max-w-2xl mx-auto">
+        <div className="max-w-3xl mx-auto">
           <div className="bg-slate-50 rounded-2xl p-8 shadow-sm text-center">
             <h2 className="text-2xl font-bold text-slate-900 mb-6">联系方式</h2>
-            <div className="space-y-6">
-              {/* 电话和邮箱合并为一行 */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                {/* 电话 */}
-                <div className="flex flex-col items-center gap-2">
-                  <div className="bg-blue-100 p-3 rounded-full">
-                    <Phone className="w-6 h-6 text-blue-700" />
-                  </div>
-                  <div>
-                    <p className="font-semibold text-slate-900">电话咨询</p>
-                    <p className="text-slate-600">400-123-4567</p>
-                    <p className="text-sm text-slate-500">周一至周日 9:00-18:00</p>
-                  </div>
+
+            {/* 电话、邮箱、地址三列并排 */}
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+              {/* 电话 */}
+              <div className="flex flex-col items-center gap-2">
+                <div className="bg-blue-100 p-3 rounded-full">
+                  <Phone className="w-6 h-6 text-blue-700" />
                 </div>
-                {/* 邮箱 */}
-                <div className="flex flex-col items-center gap-2">
-                  <div className="bg-blue-100 p-3 rounded-full">
-                    <Mail className="w-6 h-6 text-blue-700" />
-                  </div>
-                  <div>
-                    <p className="font-semibold text-slate-900">电子邮箱</p>
-                    <p className="text-slate-600">contact@carevita.com</p>
-                    <p className="text-sm text-slate-500">我们会尽快回复您的邮件</p>
-                  </div>
+                <div>
+                  <p className="font-semibold text-slate-900">电话咨询</p>
+                  <p className="text-slate-600 text-sm">400-123-4567</p>
+                  <p className="text-xs text-slate-500">周一至周日 9:00-18:00</p>
                 </div>
               </div>
 
-              {/* 地址（单独一行，居中） */}
-              <div className="flex flex-col items-center gap-2 pt-2">
+              {/* 邮箱 */}
+              <div className="flex flex-col items-center gap-2">
+                <div className="bg-blue-100 p-3 rounded-full">
+                  <Mail className="w-6 h-6 text-blue-700" />
+                </div>
+                <div>
+                  <p className="font-semibold text-slate-900">电子邮箱</p>
+                  <p className="text-slate-600 text-sm">contact@carevita.com</p>
+                  <p className="text-xs text-slate-500">我们会尽快回复您的邮件</p>
+                </div>
+              </div>
+
+              {/* 地址 */}
+              <div className="flex flex-col items-center gap-2">
                 <div className="bg-blue-100 p-3 rounded-full">
                   <MapPin className="w-6 h-6 text-blue-700" />
                 </div>
                 <div>
                   <p className="font-semibold text-slate-900">公司地址</p>
-                  <p className="text-slate-600">中国上海市某某区某某路123号</p>
-                  <p className="text-sm text-slate-500">邮编：200000</p>
+                  <p className="text-slate-600 text-sm">上海市某某区某某路123号</p>
+                  <p className="text-xs text-slate-500">邮编：200000</p>
                 </div>
               </div>
             </div>
