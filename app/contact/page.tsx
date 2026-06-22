@@ -6,7 +6,7 @@ import { Mail, Phone, MapPin } from "lucide-react";
 export default function ContactPage() {
   return (
     <div className="min-h-screen bg-white font-sans antialiased text-slate-800">
-      {/* 导航栏 - 与首页一致，高亮“联系我们” */}
+      {/* 导航栏 */}
       <nav className="sticky top-0 z-50 border-b border-slate-100 bg-white/90 backdrop-blur-md">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex h-20 items-center justify-between">
@@ -30,12 +30,13 @@ export default function ContactPage() {
           <p className="mt-4 text-slate-500 max-w-xl mx-auto">我们期待与您沟通，为您提供专业的营养健康服务。</p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-12 items-start">
-          {/* 左侧联系信息卡片 */}
-          <div className="bg-slate-50 rounded-2xl p-8 shadow-sm">
+        {/* 单列居中布局 */}
+        <div className="max-w-2xl mx-auto">
+          {/* 联系方式卡片（居中） */}
+          <div className="bg-slate-50 rounded-2xl p-8 shadow-sm text-center">
             <h2 className="text-2xl font-bold text-slate-900 mb-6">联系方式</h2>
             <div className="space-y-6">
-              <div className="flex items-start gap-4">
+              <div className="flex flex-col items-center gap-2">
                 <div className="bg-blue-100 p-3 rounded-full">
                   <Phone className="w-6 h-6 text-blue-700" />
                 </div>
@@ -45,7 +46,7 @@ export default function ContactPage() {
                   <p className="text-sm text-slate-500">周一至周日 9:00-18:00</p>
                 </div>
               </div>
-              <div className="flex items-start gap-4">
+              <div className="flex flex-col items-center gap-2">
                 <div className="bg-blue-100 p-3 rounded-full">
                   <Mail className="w-6 h-6 text-blue-700" />
                 </div>
@@ -55,7 +56,7 @@ export default function ContactPage() {
                   <p className="text-sm text-slate-500">我们会尽快回复您的邮件</p>
                 </div>
               </div>
-              <div className="flex items-start gap-4">
+              <div className="flex flex-col items-center gap-2">
                 <div className="bg-blue-100 p-3 rounded-full">
                   <MapPin className="w-6 h-6 text-blue-700" />
                 </div>
@@ -67,7 +68,7 @@ export default function ContactPage() {
               </div>
             </div>
 
-            {/* 新添加：京东和小红书二维码区域（替代原商务合作） */}
+            {/* 二维码区域（居中） */}
             <div className="mt-8 pt-6 border-t border-slate-200">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div>
@@ -94,36 +95,11 @@ export default function ContactPage() {
             </div>
           </div>
 
-          {/* 右侧联系表单 */}
-          <div className="bg-white border border-slate-100 rounded-2xl p-8 shadow-sm">
-            <h2 className="text-2xl font-bold text-slate-900 mb-6">在线留言</h2>
-            <form action="#" method="POST" className="space-y-5">
-              <div>
-                <label className="block text-sm font-medium text-slate-700 mb-1">您的姓名 *</label>
-                <input type="text" required className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none" />
-              </div>
-              <div>
-                <label className="block text-sm font-medium text-slate-700 mb-1">电子邮箱 *</label>
-                <input type="email" required className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none" />
-              </div>
-              <div>
-                <label className="block text-sm font-medium text-slate-700 mb-1">联系电话</label>
-                <input type="tel" className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none" />
-              </div>
-              <div>
-                <label className="block text-sm font-medium text-slate-700 mb-1">留言内容 *</label>
-                <textarea rows={4} required className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none"></textarea>
-              </div>
-              <button type="submit" className="w-full bg-blue-900 hover:bg-blue-800 text-white font-semibold py-3 rounded-lg transition">提交留言</button>
-              <p className="text-xs text-slate-400 text-center">* 为必填项，我们会在1-2个工作日内回复您。</p>
-            </form>
-          </div>
-        </div>
-
-        {/* 地图占位（可选） */}
-        <div className="mt-16">
-          <div className="bg-slate-100 rounded-2xl h-64 flex items-center justify-center text-slate-400">
-            [地图占位符] 可嵌入百度地图或高德地图
+          {/* 地图占位（保留，居中） */}
+          <div className="mt-16">
+            <div className="bg-slate-100 rounded-2xl h-64 flex items-center justify-center text-slate-400">
+              [地图占位符] 可嵌入百度地图或高德地图
+            </div>
           </div>
         </div>
       </main>
