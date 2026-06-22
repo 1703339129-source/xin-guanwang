@@ -67,9 +67,30 @@ export default function ContactPage() {
               </div>
             </div>
 
+            {/* 新添加：京东和小红书二维码区域（替代原商务合作） */}
             <div className="mt-8 pt-6 border-t border-slate-200">
-              <h3 className="text-lg font-bold text-slate-900 mb-2">商务合作</h3>
-              <p className="text-slate-600">渠道合作、媒体采访等请发送邮件至：<br /><span className="text-blue-700">business@carevita.com</span></p>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <div>
+                  <p className="text-sm font-semibold text-slate-900 mb-2">🔍 京东：凯维他旗舰店</p>
+                  <div className="flex justify-center">
+                    <img
+                      src="/JD.jpg"
+                      alt="京东凯维他旗舰店二维码"
+                      className="w-32 h-32 object-contain border border-slate-200 rounded-lg"
+                    />
+                  </div>
+                </div>
+                <div>
+                  <p className="text-sm font-semibold text-slate-900 mb-2">🔍 小红书：凯维他</p>
+                  <div className="flex justify-center">
+                    <img
+                      src="/XHS.jpg"
+                      alt="小红书凯维他二维码"
+                      className="w-32 h-32 object-contain border border-slate-200 rounded-lg"
+                    />
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
 
