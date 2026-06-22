@@ -21,7 +21,7 @@ export default function ProductsPage() {
       name: "水溶性膳食纤维粉",
       img: "/product-fiber.jpg",
       slug: "fiber",
-      features: ["100%智利进口高品质原粉", "长链科学膳食结构", "特别添加低聚果糖益生元"],
+      features: ["100%智利进口高品质原粉", "长短链科学膳食结构", "特别添加低聚果糖益生元"],
     },
     {
       name: "乐酚鱼油软胶囊",
