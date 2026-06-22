@@ -28,7 +28,6 @@ export default function HomePage() {
 
   return (
     <div className="min-h-screen bg-white font-sans antialiased text-slate-800 scroll-smooth">
-      
       {/* 导航栏 */}
       <nav className="fixed top-0 left-0 right-0 z-50 border-b border-slate-100 bg-white/90 backdrop-blur-md">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -86,7 +85,6 @@ export default function HomePage() {
               精准营养，凯维他为健康赋能
             </p>
             <p className="mt-1 text-xs text-slate-600 leading-relaxed">
-              {/* 删去了“为中国家庭” */}
               提供安全、有效、高性价比的专业营养解决方案。
             </p>
             <div className="mt-4 h-14"></div>
@@ -212,7 +210,8 @@ export default function HomePage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-extrabold text-slate-900">产品矩阵</h2>
-            <p className="text-sm text-slate-400 mt-2">专为中国家庭精研的严肃营养方案</p>
+            {/* 修改此处：只保留一行副标题 */}
+            <p className="text-sm text-slate-400 mt-2">中国严肃医学营养方案</p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
@@ -232,14 +231,12 @@ export default function HomePage() {
                 name: "水溶性膳食纤维粉", 
                 img: "/product-fiber.jpg", 
                 slug: "fiber", 
-                // 修改“长链”为“长短链”
                 features: ["100%智利进口高品质原粉", "长短链科学膳食结构", "特别添加低聚果糖益生元"] 
               },
               { 
                 name: "乐酚鱼油软胶囊", 
                 img: "/product-fishoil.jpg", 
                 slug: "fish-oil", 
-                // 修改“rTG”为“TGN”
                 features: ["来自挪威金牌 EPAX 源头", "90%超高纯度 OMEGA-3", "TGN 黄金人体吸收结构"] 
               }
             ].map((product, idx) => (

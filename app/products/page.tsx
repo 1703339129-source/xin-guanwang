@@ -1,4 +1,3 @@
-// app/products/page.tsx
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
@@ -15,7 +14,7 @@ export default function ProductsPage() {
       name: "HMB 乳清蛋白粉",
       img: "/product-whey-green.jpg",
       slug: "hmb-whey",
-      features: ["100%进口乳清奶源", "特别添加 CaHMB 核心成分", "科学护肌强韧骨骼"],
+      features: ["100%进口乳清粉", "特别添加 CaHMB 核心成分", "科学护肌强韧骨骼"],
     },
     {
       name: "水溶性膳食纤维粉",
@@ -27,7 +26,7 @@ export default function ProductsPage() {
       name: "乐酚鱼油软胶囊",
       img: "/product-fishoil.jpg",
       slug: "fish-oil",
-      features: ["来自挪威金牌 EPAX 源头", "90%超高纯度 OMEGA-3", "rTG 黄金人体吸收结构"],
+      features: ["来自挪威金牌 EPAX 源头", "90%超高纯度 OMEGA-3", "TGN 黄金人体吸收结构"],
     },
   ];
 
@@ -44,7 +43,7 @@ export default function ProductsPage() {
               <Link href="/" className="text-slate-600 hover:text-blue-600">首页</Link>
               <Link href="/products" className="text-blue-600 border-b-2 border-blue-600 pb-1">产品</Link>
               <Link href="/about" className="text-slate-600 hover:text-blue-600">关于凯维他</Link>
-              <Link href="/#contact" className="text-slate-600 hover:text-blue-600">联系我们</Link>
+              <Link href="/contact" className="text-slate-600 hover:text-blue-600">联系我们</Link>
             </div>
           </div>
         </div>
@@ -53,11 +52,11 @@ export default function ProductsPage() {
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
         <div className="text-center mb-12">
           <h1 className="text-4xl font-extrabold text-slate-900">产品矩阵</h1>
-          <p className="text-sm text-slate-400 mt-2">专为中国家庭精研的严肃营养方案</p>
+          {/* 修改此处：只保留一行副标题 */}
+          <p className="text-sm text-slate-400 mt-2">中国严肃医学营养方案</p>
           <div className="mt-4 h-1 w-20 bg-blue-600 mx-auto rounded-full"></div>
         </div>
 
-        {/* 两行两列布局 */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {products.map((product) => (
             <div key={product.slug} className="bg-white rounded-2xl border border-slate-100 shadow-sm transition-all hover:shadow-lg overflow-hidden flex flex-col md:flex-row">
