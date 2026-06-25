@@ -121,7 +121,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 全球级原料甄选 - "挪威" 改为 "秘鲁" */}
+      {/* 全球级原料甄选 */}
       <section 
         id="brand" 
         className="relative bg-cover bg-center bg-no-repeat min-h-[calc(100vh-5rem)] flex items-center"
@@ -237,15 +237,24 @@ export default function HomePage() {
                 name: "VitalOmega牌鱼油软胶囊", 
                 img: "/product-fishoil.jpg", 
                 slug: "fish-oil", 
+                // 鱼油产品图片容器单独处理
+                isFishOil: true,
                 features: ["来自秘鲁深海 纯净海域天然屏障", "95%超高纯度 OMEGA-3", "精研rTG结构-吸收新标杆"] 
               }
             ].map((product, idx) => (
               <div key={idx} className="bg-white rounded-2xl border border-slate-100 shadow-sm transition-all hover:shadow-lg overflow-hidden flex flex-col">
-                <div className="relative h-56 w-full bg-slate-50 overflow-hidden">
-                  <Image src={product.img} alt={product.name} fill className="object-contain p-4" />
+                <div className={`relative ${product.isFishOil ? 'h-64' : 'h-56'} w-full bg-slate-50 overflow-hidden`}>
+                  <Image 
+                    src={product.img} 
+                    alt={product.name} 
+                    fill 
+                    className="object-contain p-4" 
+                  />
                 </div>
                 <div className="p-5 flex flex-col flex-grow">
-                  <h3 className="text-xl font-bold text-slate-900">{product.name}</h3>
+                  <h3 className="text-lg font-bold text-slate-900 leading-tight whitespace-nowrap overflow-hidden text-ellipsis">
+                    {product.name}
+                  </h3>
                   <ul className="text-sm text-slate-500 mt-3 space-y-1 list-disc list-inside">
                     {product.features.map((f, i) => <li key={i}>{f}</li>)}
                   </ul>
