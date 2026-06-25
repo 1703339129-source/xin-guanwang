@@ -206,14 +206,14 @@ export default function HomePage() {
         </div>
       </div>
 
-      {/* 产品矩阵展示区 - 所有卡片统一高度，鱼油图片在框内放大 */}
+      {/* 产品矩阵展示区 */}
       <section id="products-matrix" className="py-20 bg-slate-50/60 border-t border-slate-100">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-extrabold text-slate-900">产品矩阵</h2>
             <p className="text-sm text-slate-400 mt-2">中国严肃医学营养方案</p>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
               { 
                 name: "分离乳清蛋白粉", 
@@ -231,37 +231,37 @@ export default function HomePage() {
                 name: "水溶性膳食纤维粉", 
                 img: "/product-fiber.jpg", 
                 slug: "fiber", 
+                isLargeImage: true,
                 features: ["100%智利进口高品质原粉", "长短链科学膳食结构", "特别添加低聚果糖益生元"] 
               },
               { 
                 name: "VitalOmega牌鱼油软胶囊", 
                 img: "/product-fishoil.jpg", 
                 slug: "fish-oil", 
-                isFishOil: true,
+                isLargeImage: true,
                 features: ["来自秘鲁深海 纯净海域天然屏障", "95%超高纯度 OMEGA-3", "精研rTG结构-吸收新标杆"] 
               }
             ].map((product, idx) => (
               <div key={idx} className="bg-white rounded-2xl border border-slate-100 shadow-sm transition-all hover:shadow-lg overflow-hidden flex flex-col h-full">
-                {/* 图片容器 - 所有卡片统一 h-56，鱼油图片在框内通过 scale 放大 */}
-                <div className="relative h-56 w-full bg-slate-50 overflow-hidden flex items-center justify-center p-2">
-                  <div className={`w-full h-full flex items-center justify-center ${product.isFishOil ? 'scale-110' : ''}`}>
+                <div className="relative h-48 w-full bg-slate-50 overflow-hidden flex items-center justify-center">
+                  <div className={`w-full h-full flex items-center justify-center ${product.isLargeImage ? 'scale-110' : ''}`}>
                     <Image 
                       src={product.img} 
                       alt={product.name} 
                       width={200}
                       height={200}
-                      className="object-contain w-full h-full"
+                      className={`object-contain w-full h-full ${product.isLargeImage ? 'scale-110' : ''}`}
                     />
                   </div>
                 </div>
-                <div className="p-5 flex flex-col flex-grow">
+                <div className="p-4 flex flex-col flex-grow">
                   <h3 className="text-lg font-bold text-slate-900 leading-tight whitespace-nowrap overflow-hidden text-ellipsis">
                     {product.name}
                   </h3>
-                  <ul className="text-sm text-slate-500 mt-3 space-y-1 list-disc list-inside">
+                  <ul className="text-sm text-slate-500 mt-2 space-y-1 list-disc list-inside">
                     {product.features.map((f, i) => <li key={i}>{f}</li>)}
                   </ul>
-                  <Link href={`/products/${product.slug}`} className="mt-6 w-full py-2.5 bg-blue-900 hover:bg-blue-800 text-white rounded-lg text-sm font-semibold flex items-center justify-center transition text-center">
+                  <Link href={`/products/${product.slug}`} className="mt-4 w-full py-2 bg-blue-900 hover:bg-blue-800 text-white rounded-lg text-sm font-semibold flex items-center justify-center transition text-center">
                     了解更多 <ArrowRight size={14} className="ml-1" />
                   </Link>
                 </div>
@@ -271,7 +271,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 底部区域 */}
+      {/* 底部区域 - 已更新联系信息 */}
       <footer 
         id="contact" 
         className="relative py-20 bg-cover bg-center bg-no-repeat"
@@ -285,9 +285,9 @@ export default function HomePage() {
             凯维他，一路与您同行
           </p>
           <div className="mt-8 flex flex-col items-center space-y-2">
-            <p>📧 邮箱：contact@carevita.com</p>
-            <p>📞 电话：400-123-4567</p>
-            <p>📍 地址：中国上海市某某区某某路123号</p>
+            {/* 已删除邮箱 */}
+            <p>📞 电话：4006882779</p>
+            <p>📍 地址：香港葵涌泰林路144~150号金田工业大厦15楼</p>
           </div>
           <div className="mt-12 pt-8 border-t border-white/20 text-xs opacity-80">
             <p>© 2026 Carevita 凯维他版权所有 | 中国严肃医学营养领航品牌</p>
