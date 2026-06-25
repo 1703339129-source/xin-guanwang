@@ -32,8 +32,9 @@ export default function ContactPage() {
 
         <div className="max-w-3xl mx-auto">
           <div className="bg-slate-50 rounded-2xl p-8 shadow-sm text-center">
-            <h2 className="text-2xl font-bold text-slate-900 mb-6">联系方式</h2>
+            {/* 已删除“联系方式”标题 */}
 
+            {/* 电话和地址两列并排 */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               {/* 电话 */}
               <div className="flex flex-col items-center gap-2">
