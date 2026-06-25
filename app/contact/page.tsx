@@ -1,7 +1,7 @@
 // app/contact/page.tsx
 import Link from "next/link";
 import Image from "next/image";
-import { Mail, Phone, MapPin } from "lucide-react";
+import { Phone, MapPin } from "lucide-react";
 
 export default function ContactPage() {
   return (
@@ -34,8 +34,7 @@ export default function ContactPage() {
           <div className="bg-slate-50 rounded-2xl p-8 shadow-sm text-center">
             <h2 className="text-2xl font-bold text-slate-900 mb-6">联系方式</h2>
 
-            {/* 电话、邮箱、地址三列并排 */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               {/* 电话 */}
               <div className="flex flex-col items-center gap-2">
                 <div className="bg-blue-100 p-3 rounded-full">
@@ -43,20 +42,8 @@ export default function ContactPage() {
                 </div>
                 <div>
                   <p className="font-semibold text-slate-900">电话咨询</p>
-                  <p className="text-slate-600 text-sm">400-123-4567</p>
-                  <p className="text-xs text-slate-500">周一至周日 9:00-18:00</p>
-                </div>
-              </div>
-
-              {/* 邮箱 */}
-              <div className="flex flex-col items-center gap-2">
-                <div className="bg-blue-100 p-3 rounded-full">
-                  <Mail className="w-6 h-6 text-blue-700" />
-                </div>
-                <div>
-                  <p className="font-semibold text-slate-900">电子邮箱</p>
-                  <p className="text-slate-600 text-sm">contact@carevita.com</p>
-                  <p className="text-xs text-slate-500">我们会尽快回复您的邮件</p>
+                  <p className="text-slate-600 text-sm">4006882779</p>
+                  <p className="text-xs text-slate-500">周一至周五 9:00-18:00</p>
                 </div>
               </div>
 
@@ -67,8 +54,8 @@ export default function ContactPage() {
                 </div>
                 <div>
                   <p className="font-semibold text-slate-900">公司地址</p>
-                  <p className="text-slate-600 text-sm">上海市某某区某某路123号</p>
-                  <p className="text-xs text-slate-500">邮编：200000</p>
+                  <p className="text-slate-600 text-sm">香港葵涌泰林路144~150号</p>
+                  <p className="text-slate-600 text-sm">金田工业大厦15楼</p>
                 </div>
               </div>
             </div>
@@ -97,13 +84,6 @@ export default function ContactPage() {
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
-
-          {/* 地图占位 */}
-          <div className="mt-16">
-            <div className="bg-slate-100 rounded-2xl h-64 flex items-center justify-center text-slate-400">
-              [地图占位符] 可嵌入百度地图或高德地图
             </div>
           </div>
         </div>
