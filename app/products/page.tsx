@@ -52,7 +52,7 @@ export default function ProductsPage() {
         </div>
       </nav>
 
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
+      <main className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
         <div className="text-center mb-12">
           <h1 className="text-4xl font-extrabold text-slate-900">产品矩阵</h1>
           <p className="text-sm text-slate-400 mt-2">中国严肃医学营养方案</p>
@@ -62,7 +62,7 @@ export default function ProductsPage() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {products.map((product) => (
             <div key={product.slug} className="bg-white rounded-2xl border border-slate-100 shadow-sm transition-all hover:shadow-lg overflow-hidden flex flex-col md:flex-row h-full">
-              {/* 图片容器 - 缩小为 h-48，鱼油和纤维粉图片放大占满框 */}
+              {/* 图片容器 */}
               <div className="md:w-2/5 bg-slate-50 p-2 flex items-center justify-center overflow-hidden">
                 <div className={`w-full h-48 flex items-center justify-center ${product.isLargeImage ? 'scale-110' : ''}`}>
                   <Image 
