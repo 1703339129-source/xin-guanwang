@@ -8,9 +8,15 @@ const articles = [
     title: "这种97%的人都缺的营养素，让你轻松瘦下来！",
     summary: "膳食纤维不仅能让你吃得饱、瘦得快，还能全方位守护你的健康。大量研究证实，摄取更多的膳食纤维与较低的心血管疾病风险、糖尿病风险和结直肠癌发病率密切相关。",
     date: "2026-05-14",
-    coverImage: "/news/营养素2.jpg",  // 已修改为营养素2.jpg
+    coverImage: "/news/营养素2.jpg",
   },
-  // 后续添加更多文章...
+  {
+    slug: "protein-powder-guide",
+    title: "蛋白粉五花八门，该怎么选？看这篇就够了",
+    summary: "面对市场上琳琅满目的蛋白粉产品，如何选对蛋白粉正成为减重者关心的问题。从乳清蛋白的稀缺性到分离乳清的优势，一文读懂如何挑选真正适合减重的蛋白粉。",
+    date: "2026-01-22",
+    coverImage: "/news/蛋白粉五花八门/五花八门1.jpg",  // 已修改
+  },
 ];
 
 export default function NewsPage() {
