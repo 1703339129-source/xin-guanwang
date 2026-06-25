@@ -25,7 +25,7 @@ export default function AboutPage() {
               <Link href="/" className="flex items-center focus:outline-none">
                 <Image 
                   src="/logo.jpg" 
-                  alt="CareVita 凯维他 Logo" 
+                  alt="Carevita 凯维他 Logo" 
                   width={120}
                   height={40}
                   className="h-10 w-auto object-contain"
@@ -57,16 +57,14 @@ export default function AboutPage() {
 
         <div className="h-20"></div>
 
-        {/* 关于凯维他主内容 - 整体缩小为原来的2/3 */}
+        {/* 关于凯维他主内容 */}
         <section className="py-12 md:py-16">
           <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
-            {/* 标题区域缩小 */}
             <div className="mb-10 text-center">
               <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-white">关于凯维他</h1>
               <div className="mt-3 h-0.5 w-16 bg-blue-400 mx-auto rounded-full"></div>
             </div>
 
-            {/* 正文容器 - 宽度缩小，字号缩小 */}
             <div className="max-w-2xl mx-auto space-y-6 text-white/90 leading-relaxed">
               <p className="text-sm sm:text-base">
                 在国民健康意识全面觉醒的今天，我们见过太多营养市场的矛盾与遗憾。
@@ -84,7 +82,7 @@ export default function AboutPage() {
                 CareVita，是我们对品牌初心的最好注解 ——<span className="font-medium text-blue-300">Care</span>，是源于医学的专业关怀与严谨守护；<span className="font-medium text-blue-300">Vita</span>，是对生命本真活力的敬畏与赋能。我们锚定「严肃医学营养」的品牌内核，拒绝随波逐流的概念炒作，从诞生之初，便立下了三条不可动摇的品牌铁律：
               </p>
 
-              {/* 三条铁律卡片 - 内边距和间距缩小 */}
+              {/* 三条铁律卡片 */}
               <div className="grid md:grid-cols-3 gap-4 my-6">
                 <div className="rounded-xl p-4 border border-white/20 bg-transparent">
                   <div className="w-9 h-9 bg-white/10 rounded-full flex items-center justify-center mb-3">
@@ -117,13 +115,12 @@ export default function AboutPage() {
               </p>
             </div>
 
-            {/* 联系信息 */}
+            {/* 联系信息 - 已同步为最新 */}
             <div className="mt-12 text-center border-t border-white/20 pt-6">
               <p className="text-white/70 text-xs">如有合作或咨询需求，欢迎联系我们</p>
               <div className="mt-3 flex flex-col sm:flex-row justify-center gap-3 text-xs text-white/60">
-                <span>📧 contact@carevita.com</span>
-                <span>📞 400-123-4567</span>
-                <span>📍 中国上海市某某区</span>
+                <span>📞 4006882779</span>
+                <span>📍 香港葵涌泰林路144~150号金田工业大厦15楼</span>
               </div>
             </div>
           </div>
@@ -131,7 +128,7 @@ export default function AboutPage() {
 
         {/* 页脚 */}
         <footer className="py-6 text-center text-white/60 text-[11px] border-t border-white/10">
-          <p>© 2026 CareVita 凯维他版权所有 | 中国严肃医学营养领航品牌</p>
+          <p>© 2026 Carevita 凯维他版权所有 | 中国严肃医学营养领航品牌</p>
           <p className="mt-1">隐私政策 | 服务条款</p>
         </footer>
       </div>
