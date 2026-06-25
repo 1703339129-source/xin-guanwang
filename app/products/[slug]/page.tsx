@@ -64,7 +64,25 @@ const productData: Record<string, any> = {
     name: "VitalOmega牌鱼油软胶囊",
     fullName: "VitalOmega牌鱼油软胶囊",
     image: "/product-fishoil.jpg",
-    detailImage: "",
+    // 添加16张鱼油详情图
+    images: [
+      "/鱼油修改4_01.jpg",
+      "/鱼油修改4_02.jpg",
+      "/鱼油修改4_03.jpg",
+      "/鱼油修改4_04.jpg",
+      "/鱼油修改4_05.jpg",
+      "/鱼油修改4_06.jpg",
+      "/鱼油修改4_07.jpg",
+      "/鱼油修改4_08.jpg",
+      "/鱼油修改4_09.jpg",
+      "/鱼油修改4_10.jpg",
+      "/鱼油修改4_11.jpg",
+      "/鱼油修改4_12.jpg",
+      "/鱼油修改4_13.jpg",
+      "/鱼油修改4_14.jpg",
+      "/鱼油修改4_15.jpg",
+      "/鱼油修改4_16.jpg",
+    ],
     规格: "33.6g（560mg/粒×60粒）",
     主要成分: "秘鲁进口深海鱼油",
     特点: ["来自秘鲁深海 纯净海域天然屏障", "95%超高纯度OMEGA-3", "精研rTG结构-吸收新标杆"],
@@ -79,8 +97,8 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
 
   const hasMultiImages = product.images && product.images.length > 0;
   const isLargeImage = slug === "fiber" || slug === "fish-oil";
-  // 需要横向轮播的产品：纤维粉、HMB乳清蛋白粉（未来可扩展）
-  const isHorizontal = slug === "fiber" || slug === "hmb-whey";
+  // 需要横向轮播的产品：纤维粉、HMB乳清蛋白粉、鱼油
+  const isHorizontal = slug === "fiber" || slug === "hmb-whey" || slug === "fish-oil";
 
   return (
     <div className="min-h-screen bg-white font-sans antialiased text-slate-800">
@@ -162,7 +180,6 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
                   isHorizontal ? (
                     <>
                       <HorizontalCarousel images={product.images} alt={product.name} />
-                      {/* 新增的提示文字：字体与产品特点一致 */}
                       <div className="text-center text-xs text-slate-600 mt-2">
                         左右滑动查看产品详情
                       </div>
