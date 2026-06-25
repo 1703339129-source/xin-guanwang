@@ -206,7 +206,7 @@ export default function HomePage() {
         </div>
       </div>
 
-      {/* 产品矩阵展示区 */}
+      {/* 产品矩阵展示区 - 所有卡片统一高度，鱼油图片在框内放大 */}
       <section id="products-matrix" className="py-20 bg-slate-50/60 border-t border-slate-100">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
@@ -237,19 +237,22 @@ export default function HomePage() {
                 name: "VitalOmega牌鱼油软胶囊", 
                 img: "/product-fishoil.jpg", 
                 slug: "fish-oil", 
-                // 鱼油产品图片容器单独处理
                 isFishOil: true,
                 features: ["来自秘鲁深海 纯净海域天然屏障", "95%超高纯度 OMEGA-3", "精研rTG结构-吸收新标杆"] 
               }
             ].map((product, idx) => (
-              <div key={idx} className="bg-white rounded-2xl border border-slate-100 shadow-sm transition-all hover:shadow-lg overflow-hidden flex flex-col">
-                <div className={`relative ${product.isFishOil ? 'h-64' : 'h-56'} w-full bg-slate-50 overflow-hidden`}>
-                  <Image 
-                    src={product.img} 
-                    alt={product.name} 
-                    fill 
-                    className="object-contain p-4" 
-                  />
+              <div key={idx} className="bg-white rounded-2xl border border-slate-100 shadow-sm transition-all hover:shadow-lg overflow-hidden flex flex-col h-full">
+                {/* 图片容器 - 所有卡片统一 h-56，鱼油图片在框内通过 scale 放大 */}
+                <div className="relative h-56 w-full bg-slate-50 overflow-hidden flex items-center justify-center p-2">
+                  <div className={`w-full h-full flex items-center justify-center ${product.isFishOil ? 'scale-110' : ''}`}>
+                    <Image 
+                      src={product.img} 
+                      alt={product.name} 
+                      width={200}
+                      height={200}
+                      className="object-contain w-full h-full"
+                    />
+                  </div>
                 </div>
                 <div className="p-5 flex flex-col flex-grow">
                   <h3 className="text-lg font-bold text-slate-900 leading-tight whitespace-nowrap overflow-hidden text-ellipsis">
