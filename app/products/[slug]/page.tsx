@@ -64,7 +64,8 @@ const productData: Record<string, any> = {
     name: "VitalOmega牌鱼油软胶囊",
     fullName: "VitalOmega牌鱼油软胶囊",
     image: "/product-fishoil.jpg",
-    // 添加16张鱼油详情图
+    detailImage: "",
+    // 新增16张鱼油详情图
     images: [
       "/鱼油修改4_01.jpg",
       "/鱼油修改4_02.jpg",
@@ -85,8 +86,11 @@ const productData: Record<string, any> = {
     ],
     规格: "33.6g（560mg/粒×60粒）",
     主要成分: "秘鲁进口深海鱼油",
+    // 修改适用人群：仅保留血脂偏高者
+    适用人群: "血脂偏高者",
+    // 新增保健功能字段
+    保健功能: "有助于维持血脂健康水平",
     特点: ["来自秘鲁深海 纯净海域天然屏障", "95%超高纯度OMEGA-3", "精研rTG结构-吸收新标杆"],
-    适用人群: "血脂偏高者、中老年人心脑血管保健",
   },
 };
 
@@ -97,7 +101,7 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
 
   const hasMultiImages = product.images && product.images.length > 0;
   const isLargeImage = slug === "fiber" || slug === "fish-oil";
-  // 需要横向轮播的产品：纤维粉、HMB乳清蛋白粉、鱼油
+  // 为鱼油启用横向轮播
   const isHorizontal = slug === "fiber" || slug === "hmb-whey" || slug === "fish-oil";
 
   return (
@@ -150,6 +154,8 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
                 <p><span className="font-semibold">主要成分：</span>{product.主要成分}</p>
                 {product.蛋白质含量 && <p><span className="font-semibold">蛋白质含量：</span>{product.蛋白质含量}</p>}
                 <p><span className="font-semibold">适用人群：</span>{product.适用人群}</p>
+                {/* 新增保健功能行 */}
+                {product.保健功能 && <p><span className="font-semibold">保健功能：</span>{product.保健功能}</p>}
               </div>
               <div>
                 <h2 className="text-sm font-bold text-slate-900">产品特点</h2>
@@ -170,7 +176,6 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
           </div>
         </div>
 
-        {/* 详情图展示区 */}
         <div id="product-detail" className="mt-16 scroll-mt-20">
           <div className="border-t border-slate-100 pt-10">
             <h2 className="text-2xl font-bold text-slate-900 text-center mb-6">产品详情</h2>
