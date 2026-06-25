@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import ScrollButton from "./ScrollButton";
+import HorizontalCarousel from "@/app/components/HorizontalCarousel";
 
 const productData: Record<string, any> = {
   "whey-isolate": {
@@ -78,8 +79,7 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
 
   const hasMultiImages = product.images && product.images.length > 0;
   const isLargeImage = slug === "fiber" || slug === "fish-oil";
-  // 需要横向轮播的产品：纤维粉 和 HMB乳清蛋白粉
-  const isHorizontalScroll = slug === "fiber" || slug === "hmb-whey";
+  const isHorizontal = slug === "fiber" || slug === "hmb-whey";
 
   return (
     <div className="min-h-screen bg-white font-sans antialiased text-slate-800">
@@ -151,56 +151,41 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
           </div>
         </div>
 
-        {/* 详情图展示区 */}
         <div id="product-detail" className="mt-16 scroll-mt-20">
           <div className="border-t border-slate-100 pt-10">
             <h2 className="text-2xl font-bold text-slate-900 text-center mb-6">产品详情</h2>
-            {hasMultiImages ? (
-              // 针对需要横向轮播的产品（纤维粉、HMB乳清蛋白粉）
-              isHorizontalScroll ? (
-                // 使用 flex-col-reverse 让滚动条出现在图片上方
-                <div className="flex flex-col-reverse w-full">
-                  {/* 图片区域 */}
-                  <div className="w-full overflow-x-auto pb-4" style={{ scrollbarWidth: 'thin', scrollbarColor: '#9CA3AF #E5E7EB' }}>
-                    <div className="flex flex-nowrap gap-4 w-max">
+            <div className="flex justify-center">
+              <div className="w-full max-w-4xl">
+                {hasMultiImages ? (
+                  isHorizontal ? (
+                    <HorizontalCarousel images={product.images} alt={product.name} />
+                  ) : (
+                    <div className="flex flex-col items-center gap-6">
                       {product.images.map((img: string, idx: number) => (
-                        <div key={idx} className="flex-shrink-0 w-64 h-64 bg-gray-50 rounded-lg shadow-md overflow-hidden flex items-center justify-center">
+                        <div key={idx} className="flex justify-center">
                           <img
                             src={img}
                             alt={`${product.name} 详情图 ${idx + 1}`}
-                            className="w-full h-full object-contain"
+                            className="max-w-sm w-full h-auto object-contain rounded-lg shadow-md"
                           />
                         </div>
                       ))}
                     </div>
-                  </div>
-                </div>
-              ) : (
-                // 纵向排列（原有样式）
-                <div className="flex flex-col items-center gap-6">
-                  {product.images.map((img: string, idx: number) => (
-                    <div key={idx} className="flex justify-center">
+                  )
+                ) : (
+                  product.detailImage &&
+                  product.detailImage !== "" && (
+                    <div className="flex justify-center">
                       <img
-                        src={img}
-                        alt={`${product.name} 详情图 ${idx + 1}`}
-                        className="max-w-sm w-full h-auto object-contain rounded-lg shadow-md"
+                        src={product.detailImage}
+                        alt={`${product.name} 详情图`}
+                        className="max-w-sm w-full h-auto object-contain rounded-2xl shadow-md"
                       />
                     </div>
-                  ))}
-                </div>
-              )
-            ) : (
-              product.detailImage &&
-              product.detailImage !== "" && (
-                <div className="flex justify-center">
-                  <img
-                    src={product.detailImage}
-                    alt={`${product.name} 详情图`}
-                    className="max-w-sm w-full h-auto object-contain rounded-2xl shadow-md"
-                  />
-                </div>
-              )
-            )}
+                  )
+                )}
+              </div>
+            </div>
           </div>
         </div>
       </main>
