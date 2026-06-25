@@ -68,7 +68,7 @@ export default function HomePage() {
 
       <div className="h-20"></div>
 
-      {/* 首屏主视觉区 - 使用新图片 */}
+      {/* 首屏主视觉区 */}
       <section 
         id="hero" 
         className="relative overflow-hidden bg-cover bg-center bg-no-repeat min-h-[calc(100vh-5rem)] flex items-center"
@@ -121,7 +121,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 全球级原料甄选 */}
+      {/* 全球级原料甄选 - "挪威" 改为 "秘鲁" */}
       <section 
         id="brand" 
         className="relative bg-cover bg-center bg-no-repeat min-h-[calc(100vh-5rem)] flex items-center"
@@ -137,7 +137,7 @@ export default function HomePage() {
                 坚持“好原料才有好产品”，全球溯源核心原料。
               </p>
               <p className="mt-2 text-sm sm:text-base text-slate-700 leading-relaxed">
-                从美国黄金奶源乳清，到挪威深海渔场的鱼油，再到智利非转基因天然纤维
+                从美国黄金奶源乳清，到秘鲁深海渔场的鱼油，再到智利非转基因天然纤维
               </p>
               <p className="mt-1 text-sm sm:text-base text-slate-700 leading-relaxed">
                 每一批原料均经过严苛检测
@@ -159,7 +159,7 @@ export default function HomePage() {
                   <Image src="/深海鱼油.jpg" alt="深海鱼油" fill className="object-cover" />
                 </div>
                 <div className="p-4 text-center">
-                  <span className="inline-block text-xs font-bold text-blue-600 bg-blue-50 px-2 py-0.5 rounded-full">挪威</span>
+                  <span className="inline-block text-xs font-bold text-blue-600 bg-blue-50 px-2 py-0.5 rounded-full">秘鲁</span>
                   <h4 className="text-base font-bold text-slate-900 mt-2">深海鱼油</h4>
                   <p className="text-xs text-slate-500 mt-1">纯净海域，高纯度Omega-3</p>
                 </div>
@@ -179,7 +179,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 普惠级高性价比 - 使用新图片 */}
+      {/* 普惠级高性价比 */}
       <div className="relative">
         <img 
           src="/family新.jpg" 
@@ -234,10 +234,10 @@ export default function HomePage() {
                 features: ["100%智利进口高品质原粉", "长短链科学膳食结构", "特别添加低聚果糖益生元"] 
               },
               { 
-                name: "乐酚鱼油软胶囊", 
+                name: "VitalOmega牌鱼油软胶囊", 
                 img: "/product-fishoil.jpg", 
                 slug: "fish-oil", 
-                features: ["来自挪威金牌 EPAX 源头", "90%超高纯度 OMEGA-3", "TGN 黄金人体吸收结构"] 
+                features: ["来自秘鲁深海 纯净海域天然屏障", "95%超高纯度 OMEGA-3", "精研rTG结构-吸收新标杆"] 
               }
             ].map((product, idx) => (
               <div key={idx} className="bg-white rounded-2xl border border-slate-100 shadow-sm transition-all hover:shadow-lg overflow-hidden flex flex-col">

@@ -60,13 +60,13 @@ const productData: Record<string, any> = {
     适用人群: "便秘人群、需控制体重者、膳食纤维摄入不足者",
   },
   "fish-oil": {
-    name: "乐酚鱼油软胶囊",
-    fullName: "乐酚鱼油软胶囊",
+    name: "VitalOmega牌鱼油软胶囊",
+    fullName: "VitalOmega牌鱼油软胶囊",
     image: "/product-fishoil.jpg",
     detailImage: "",
-    规格: "61.2g(0.68g/粒×90）",
-    主要成分: "挪威进口EPAX®鱼油",
-    特点: ["来自挪威金牌EPAX源头", "90%超高纯度OMEGA-3", "TGN黄金结构", "高效吸收"],
+    规格: "33.6g（560mg/粒×60粒）",
+    主要成分: "秘鲁进口深海鱼油",
+    特点: ["来自秘鲁深海 纯净海域天然屏障", "95%超高纯度OMEGA-3", "精研rTG结构-吸收新标杆"],
     适用人群: "血脂偏高者、中老年人心脑血管保健",
   },
 };
@@ -77,7 +77,6 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
   if (!product) notFound();
 
   const hasMultiImages = product.images && product.images.length > 0;
-  // 水溶性膳食纤维粉和乐酚鱼油软胶囊使用放大尺寸
   const isLargeImage = slug === "fiber" || slug === "fish-oil";
 
   return (
@@ -109,7 +108,6 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-20">
         <div className="flex justify-center">
           <div className="grid md:grid-cols-2 gap-8 items-center w-full max-w-4xl">
-            {/* 产品主图 - 两个产品放大一倍 */}
             <div className="bg-slate-50 rounded-2xl p-6 flex items-center justify-center">
               <Image
                 src={product.image}

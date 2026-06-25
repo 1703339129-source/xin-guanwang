@@ -1,3 +1,4 @@
+// app/products/page.tsx
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
@@ -23,10 +24,10 @@ export default function ProductsPage() {
       features: ["100%智利进口高品质原粉", "长短链科学膳食结构", "特别添加低聚果糖益生元"],
     },
     {
-      name: "乐酚鱼油软胶囊",
+      name: "VitalOmega牌鱼油软胶囊",
       img: "/product-fishoil.jpg",
       slug: "fish-oil",
-      features: ["来自挪威金牌 EPAX 源头", "90%超高纯度 OMEGA-3", "TGN 黄金人体吸收结构"],
+      features: ["来自秘鲁深海 纯净海域天然屏障", "95%超高纯度 OMEGA-3", "精研rTG结构-吸收新标杆"],
     },
   ];
 
@@ -52,7 +53,6 @@ export default function ProductsPage() {
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
         <div className="text-center mb-12">
           <h1 className="text-4xl font-extrabold text-slate-900">产品矩阵</h1>
-          {/* 修改此处：只保留一行副标题 */}
           <p className="text-sm text-slate-400 mt-2">中国严肃医学营养方案</p>
           <div className="mt-4 h-1 w-20 bg-blue-600 mx-auto rounded-full"></div>
         </div>
