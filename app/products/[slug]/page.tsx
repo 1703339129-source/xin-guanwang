@@ -79,6 +79,7 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
 
   const hasMultiImages = product.images && product.images.length > 0;
   const isLargeImage = slug === "fiber" || slug === "fish-oil";
+  // 需要横向轮播的产品：纤维粉、HMB乳清蛋白粉（未来可扩展）
   const isHorizontal = slug === "fiber" || slug === "hmb-whey";
 
   return (
@@ -151,6 +152,7 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
           </div>
         </div>
 
+        {/* 详情图展示区 */}
         <div id="product-detail" className="mt-16 scroll-mt-20">
           <div className="border-t border-slate-100 pt-10">
             <h2 className="text-2xl font-bold text-slate-900 text-center mb-6">产品详情</h2>
@@ -158,7 +160,13 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
               <div className="w-full max-w-4xl">
                 {hasMultiImages ? (
                   isHorizontal ? (
-                    <HorizontalCarousel images={product.images} alt={product.name} />
+                    <>
+                      <HorizontalCarousel images={product.images} alt={product.name} />
+                      {/* 新增的提示文字：字体与产品特点一致 */}
+                      <div className="text-center text-xs text-slate-600 mt-2">
+                        左右滑动查看产品详情
+                      </div>
+                    </>
                   ) : (
                     <div className="flex flex-col items-center gap-6">
                       {product.images.map((img: string, idx: number) => (
