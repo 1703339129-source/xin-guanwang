@@ -21,12 +21,14 @@ export default function ProductsPage() {
       name: "水溶性膳食纤维粉",
       img: "/product-fiber.jpg",
       slug: "fiber",
+      isLargeImage: true,
       features: ["100%智利进口高品质原粉", "长短链科学膳食结构", "特别添加低聚果糖益生元"],
     },
     {
       name: "VitalOmega牌鱼油软胶囊",
       img: "/product-fishoil.jpg",
       slug: "fish-oil",
+      isLargeImage: true,
       features: ["来自秘鲁深海 纯净海域天然屏障", "95%超高纯度 OMEGA-3", "精研rTG结构-吸收新标杆"],
     },
   ];
@@ -57,20 +59,29 @@ export default function ProductsPage() {
           <div className="mt-4 h-1 w-20 bg-blue-600 mx-auto rounded-full"></div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {products.map((product) => (
-            <div key={product.slug} className="bg-white rounded-2xl border border-slate-100 shadow-sm transition-all hover:shadow-lg overflow-hidden flex flex-col md:flex-row">
-              <div className="md:w-2/5 bg-slate-50 p-6 flex items-center justify-center">
-                <Image src={product.img} alt={product.name} width={200} height={200} className="object-contain" />
+            <div key={product.slug} className="bg-white rounded-2xl border border-slate-100 shadow-sm transition-all hover:shadow-lg overflow-hidden flex flex-col md:flex-row h-full">
+              {/* 图片容器 - 缩小为 h-48，鱼油和纤维粉图片放大占满框 */}
+              <div className="md:w-2/5 bg-slate-50 p-2 flex items-center justify-center overflow-hidden">
+                <div className={`w-full h-48 flex items-center justify-center ${product.isLargeImage ? 'scale-110' : ''}`}>
+                  <Image 
+                    src={product.img} 
+                    alt={product.name} 
+                    width={200} 
+                    height={200} 
+                    className={`object-contain w-full h-full ${product.isLargeImage ? 'scale-110' : ''}`}
+                  />
+                </div>
               </div>
-              <div className="p-6 md:w-3/5 flex flex-col justify-between">
+              <div className="p-4 md:w-3/5 flex flex-col justify-between">
                 <div>
-                  <h2 className="text-2xl font-bold text-slate-900">{product.name}</h2>
-                  <ul className="mt-3 space-y-1 text-sm text-slate-500 list-disc list-inside">
+                  <h2 className="text-lg font-bold text-slate-900">{product.name}</h2>
+                  <ul className="mt-2 space-y-1 text-sm text-slate-500 list-disc list-inside">
                     {product.features.map((f, i) => <li key={i}>{f}</li>)}
                   </ul>
                 </div>
-                <div className="mt-6">
+                <div className="mt-4">
                   <Link href={`/products/${product.slug}`} className="inline-flex items-center text-blue-900 font-semibold hover:text-blue-700 transition">
                     了解更多 <ArrowRight size={14} className="ml-1" />
                   </Link>
