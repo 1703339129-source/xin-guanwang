@@ -10,7 +10,18 @@ const productData: Record<string, any> = {
     name: "分离乳清蛋白粉",
     fullName: "分离乳清蛋白粉固体饮料",
     image: "/product-whey-blue.jpg",
-    detailImage: "/分离乳清蛋白粉详情页.jpg",
+    // 移除单张 detailImage，改用多图
+    images: [
+      "/分离乳清蛋白粉详情页(1).jpg",
+      "/分离乳清蛋白粉详情页(2).jpg",
+      "/分离乳清蛋白粉详情页(3).jpg",
+      "/分离乳清蛋白粉详情页(4).jpg",
+      "/分离乳清蛋白粉详情页(5).jpg",
+      "/分离乳清蛋白粉详情页(6).jpg",
+      "/分离乳清蛋白粉详情页(7).jpg",
+      "/分离乳清蛋白粉详情页(8).jpg",
+      "/分离乳清蛋白粉详情页(9).jpg",
+    ],
     规格: "450克",
     主要成分: "100%美国进口分离乳清蛋白",
     蛋白质含量: "85%",
@@ -64,8 +75,6 @@ const productData: Record<string, any> = {
     name: "VitalOmega牌鱼油软胶囊",
     fullName: "VitalOmega牌鱼油软胶囊",
     image: "/product-fishoil.jpg",
-    detailImage: "",
-    // 新增16张鱼油详情图
     images: [
       "/鱼油修改4_01.jpg",
       "/鱼油修改4_02.jpg",
@@ -86,9 +95,7 @@ const productData: Record<string, any> = {
     ],
     规格: "33.6g（560mg/粒×60粒）",
     主要成分: "秘鲁进口深海鱼油",
-    // 修改适用人群：仅保留血脂偏高者
     适用人群: "血脂偏高者",
-    // 新增保健功能字段
     保健功能: "有助于维持血脂健康水平",
     特点: ["来自秘鲁深海 纯净海域天然屏障", "95%超高纯度OMEGA-3", "精研rTG结构-吸收新标杆"],
   },
@@ -101,8 +108,8 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
 
   const hasMultiImages = product.images && product.images.length > 0;
   const isLargeImage = slug === "fiber" || slug === "fish-oil";
-  // 为鱼油启用横向轮播
-  const isHorizontal = slug === "fiber" || slug === "hmb-whey" || slug === "fish-oil";
+  // 所有产品均启用横向轮播
+  const isHorizontal = hasMultiImages; // 只要有 images 数组就启用横向轮播
 
   return (
     <div className="min-h-screen bg-white font-sans antialiased text-slate-800">
@@ -154,7 +161,6 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
                 <p><span className="font-semibold">主要成分：</span>{product.主要成分}</p>
                 {product.蛋白质含量 && <p><span className="font-semibold">蛋白质含量：</span>{product.蛋白质含量}</p>}
                 <p><span className="font-semibold">适用人群：</span>{product.适用人群}</p>
-                {/* 新增保健功能行 */}
                 {product.保健功能 && <p><span className="font-semibold">保健功能：</span>{product.保健功能}</p>}
               </div>
               <div>
