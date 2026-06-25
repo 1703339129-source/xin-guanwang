@@ -68,15 +68,14 @@ export default function HomePage() {
 
       <div className="h-20"></div>
 
-      {/* 首屏主视觉区 */}
+      {/* 首屏主视觉区 - 使用新图片 */}
       <section 
         id="hero" 
         className="relative overflow-hidden bg-cover bg-center bg-no-repeat min-h-[calc(100vh-5rem)] flex items-center"
-        style={{ backgroundImage: "url('/首屏产品图.jpg')" }}
+        style={{ backgroundImage: "url('/首屏产品图新.jpg')" }}
       >
         <div className="relative z-10 w-full mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="max-w-md text-left">
-            {/* 修改标题颜色为深蓝色 text-blue-900 */}
             <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-blue-900 leading-tight">
               Carevita 凯维他™
             </h1>
@@ -180,10 +179,10 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 普惠级高性价比 */}
+      {/* 普惠级高性价比 - 使用新图片 */}
       <div className="relative">
         <img 
-          src="/family.jpg" 
+          src="/family新.jpg" 
           alt="全家福" 
           className="w-full h-auto block"
         />
