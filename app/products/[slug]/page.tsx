@@ -10,7 +10,7 @@ const productData: Record<string, any> = {
     name: "分离乳清蛋白粉",
     fullName: "分离乳清蛋白粉固体饮料",
     image: "/product-whey-blue.jpg",
-    // 移除单张 detailImage，改用多图
+    // 更新为10张图片
     images: [
       "/分离乳清蛋白粉详情页(1).jpg",
       "/分离乳清蛋白粉详情页(2).jpg",
@@ -21,6 +21,7 @@ const productData: Record<string, any> = {
       "/分离乳清蛋白粉详情页(7).jpg",
       "/分离乳清蛋白粉详情页(8).jpg",
       "/分离乳清蛋白粉详情页(9).jpg",
+      "/分离乳清蛋白粉详情页(10).jpg",
     ],
     规格: "450克",
     主要成分: "100%美国进口分离乳清蛋白",
@@ -108,8 +109,8 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
 
   const hasMultiImages = product.images && product.images.length > 0;
   const isLargeImage = slug === "fiber" || slug === "fish-oil";
-  // 所有产品均启用横向轮播
-  const isHorizontal = hasMultiImages; // 只要有 images 数组就启用横向轮播
+  // 所有有 images 的产品均使用横向轮播
+  const isHorizontal = hasMultiImages;
 
   return (
     <div className="min-h-screen bg-white font-sans antialiased text-slate-800">
