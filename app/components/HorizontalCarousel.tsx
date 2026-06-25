@@ -1,7 +1,6 @@
-// app/components/HorizontalCarousel.tsx
 'use client';
 
-import { useState, useRef, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 
 interface CarouselProps {
   images: string[];
@@ -10,18 +9,17 @@ interface CarouselProps {
 
 export default function HorizontalCarousel({ images, alt }: CarouselProps) {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  const [tooltipVisible, setTooltipVisible] = useState(false);
+  const [tooltipPos, setTooltipPos] = useState({ x: 0, y: 0 });
 
-  // 双击打开大图
   const handleDoubleClick = (img: string) => {
     setSelectedImage(img);
   };
 
-  // 关闭大图
   const closeModal = () => {
     setSelectedImage(null);
   };
 
-  // ESC 键关闭
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape') closeModal();
@@ -38,14 +36,36 @@ export default function HorizontalCarousel({ images, alt }: CarouselProps) {
           {images.map((img, idx) => (
             <div
               key={idx}
-              className="flex-shrink-0 w-72 h-72 bg-gray-50 rounded-lg shadow-md overflow-hidden flex items-center justify-center cursor-pointer hover:shadow-lg transition-shadow"
+              className="flex-shrink-0 w-72 h-72 bg-gray-50 rounded-lg shadow-md overflow-hidden flex items-center justify-center cursor-pointer hover:shadow-lg transition-shadow relative"
               onDoubleClick={() => handleDoubleClick(img)}
+              onMouseEnter={() => setTooltipVisible(true)}
+              onMouseLeave={() => setTooltipVisible(false)}
+              onMouseMove={(e) => {
+                const rect = e.currentTarget.getBoundingClientRect();
+                setTooltipPos({
+                  x: e.clientX - rect.left,
+                  y: e.clientY - rect.top,
+                });
+              }}
             >
               <img
                 src={img}
                 alt={`${alt} 详情图 ${idx + 1}`}
                 className="w-full h-full object-contain"
               />
+              {/* 跟随鼠标的提示 */}
+              {tooltipVisible && (
+                <div
+                  className="absolute pointer-events-none text-xs bg-black/70 text-white px-2 py-1 rounded whitespace-nowrap transition-opacity duration-150"
+                  style={{
+                    left: tooltipPos.x + 10,
+                    top: tooltipPos.y - 10,
+                    transform: 'translateY(-100%)',
+                  }}
+                >
+                  双击图片查看大图
+                </div>
+              )}
             </div>
           ))}
         </div>
@@ -62,7 +82,7 @@ export default function HorizontalCarousel({ images, alt }: CarouselProps) {
               src={selectedImage}
               alt="放大视图"
               className="w-full h-auto max-h-[90vh] object-contain"
-              onClick={(e) => e.stopPropagation()} // 阻止点击图片关闭
+              onClick={(e) => e.stopPropagation()}
             />
             <button
               className="absolute top-4 right-4 text-white bg-black/50 rounded-full w-10 h-10 flex items-center justify-center text-2xl hover:bg-black/70 transition"
