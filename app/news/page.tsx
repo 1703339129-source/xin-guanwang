@@ -45,6 +45,13 @@ const articles = [
     date: "2026-04-09",
     coverImage: "/news/春日轻食计划/春日轻食计划3.jpg",
   },
+  {
+    slug: "protein-for-weight-loss",
+    title: "✨ 为什么减重人群需要补充优质蛋白？",
+    summary: "为什么减脂期一定要补优质蛋白？饱腹感拉满、牢牢锁住肌肉、降低慢病风险，减重从来不是饿瘦，而是科学瘦，健康减重才是正确选择。",
+    date: "2026-03-31",
+    coverImage: "/news/补充优质蛋白/补充优质蛋白5.jpg",
+  },
 ];
 
 const PAGE_SIZE = 8;
