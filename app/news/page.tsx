@@ -81,7 +81,28 @@ const allArticles = [
     title: "吃了纤维反而便秘？这2个坑90%人都踩了坑",
     summary: "只吃纤维不喝水？吃越多越好？这两个坑90%的人都踩了。每天2000ml水分，每日25-30g膳食纤维，选对优质纤维补充剂，才能真正通便。",
     date: "2026-04-24",
-    coverImage: "/news/纤维粉便秘/纤维粉便秘1.jpg",
+    coverImage: "/news/纤维粉便秘/纤维粉便秘5.jpg",
+  },
+  {
+    slug: "fish-oil-lower-lipids",
+    title: "鱼油真能降血脂！但90%的人都吃错了🔥",
+    summary: "Omega-3确实对血脂、大脑、眼睛超友好，但吃错=给血管添堵。EPA+DHA降低甘油三酯20%～50%，选对高纯度鱼油才是关键。",
+    date: "2026-04-24",
+    coverImage: "/news/鱼油降血脂/鱼油降血脂5.jpg",
+  },
+  {
+    slug: "fish-oil-premium",
+    title: "鱼油挑选天花板！4个标准不踩坑✅",
+    summary: "买鱼油别只看牌子！纯度越高越好，优选90%+高纯度；看EPA+DHA总含量；优先rTG型；认准权威认证。选对鱼油，护血管才真的有用！",
+    date: "2026-05-19",
+    coverImage: "/news/鱼油天花板/鱼油天花板5.jpg",
+  },
+  {
+    slug: "protein-during-weight-loss",
+    title: "减重期间，一天到底要吃多少蛋白质？",
+    summary: "减重期间很多朋友只顾着少吃，却忽略了蛋白质的重要性。普通健康人每天每公斤体重0.8-1克，减重人群每天每公斤体重1.2-1.6克，吃够蛋白才能保住肌肉不反弹。",
+    date: "2026-05-19",
+    coverImage: "/news/减重期间/减重期间10.jpg",
   },
 ];
 
