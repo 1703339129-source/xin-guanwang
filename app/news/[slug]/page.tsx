@@ -5,7 +5,7 @@ import Image from "next/image";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 
-// 横向滚动组件 - 无灰色背景，图片尺寸在上一版基础上放大一倍
+// 横向滚动组件 - 无灰色背景，图片宽度调整为 w-[21rem]（原尺寸的三分之二）
 function HorizontalCarousel({ images, alt }: { images: string[]; alt: string }) {
   return (
     <div className="mt-6">
@@ -14,7 +14,7 @@ function HorizontalCarousel({ images, alt }: { images: string[]; alt: string }) 
           {images.map((img, idx) => (
             <div
               key={idx}
-              className="flex-shrink-0 w-[32rem] overflow-hidden flex items-center justify-center"
+              className="flex-shrink-0 w-[21rem] overflow-hidden flex items-center justify-center"
             >
               <img
                 src={img}
