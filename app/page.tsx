@@ -46,7 +46,7 @@ export default function HomePage() {
             <div className="hidden md:flex items-center space-x-10 text-sm font-medium">
               <button onClick={() => scrollToSection("hero")} className="text-blue-600 border-b-2 border-blue-600 pb-1">首页</button>
               <Link href="/products" className="text-slate-600 hover:text-blue-600 transition">产品</Link>
-              <Link href="/news" className="text-slate-600 hover:text-blue-600 transition">营养资讯</Link>
+              <Link href="/news" className="text-slate-600 hover:text-blue-600 transition">营养百科</Link>
               <Link href="/about" className="text-slate-600 hover:text-blue-600 transition">关于凯维他</Link>
               <Link href="/contact" className="text-slate-600 hover:text-blue-600 transition">联系我们</Link>
             </div>
@@ -61,7 +61,7 @@ export default function HomePage() {
           <div className="md:hidden border-t border-slate-100 bg-white px-4 py-4 space-y-3">
             <button onClick={() => scrollToSection("hero")} className="block w-full text-left text-sm font-medium text-blue-600">首页</button>
             <Link href="/products" onClick={() => setIsMenuOpen(false)} className="block w-full text-left text-sm font-medium text-slate-600">产品</Link>
-            <Link href="/news" onClick={() => setIsMenuOpen(false)} className="block w-full text-left text-sm font-medium text-slate-600">营养资讯</Link>
+            <Link href="/news" onClick={() => setIsMenuOpen(false)} className="block w-full text-left text-sm font-medium text-slate-600">营养百科</Link>
             <Link href="/about" onClick={() => setIsMenuOpen(false)} className="block w-full text-left text-sm font-medium text-slate-600">关于凯维他</Link>
             <Link href="/contact" onClick={() => setIsMenuOpen(false)} className="block w-full text-left text-sm font-medium text-slate-600">联系我们</Link>
           </div>

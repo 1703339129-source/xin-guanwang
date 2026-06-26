@@ -22,9 +22,16 @@ const articles = [
     title: "补够它，真能帮你减肥、控血糖",
     summary: "明明吃得不多却悄悄长肉？控制饮食坚持运动却瘦不下来？除了基因和生活习惯，还有一个容易被忽略的'减肥密码'——肠道健康。膳食纤维通过增加饱腹感、减少脂肪吸收、稳定血糖、优化肠道菌群等机制，帮你轻松控制体重。",
     date: "2025-12-18",
-    coverImage: "/news/补够它/补够它3.jpg",  // 使用补够它3.jpg
+    coverImage: "/news/补够它/补够它3.jpg",
   },
+  // 后续可继续添加更多文章...
 ];
+
+// 分页配置
+const PAGE_SIZE = 8; // 每页显示8篇文章（一行4个 × 2行）
+const currentPage = 1; // 当前页码
+const totalPages = Math.ceil(articles.length / PAGE_SIZE);
+const paginatedArticles = articles.slice(0, PAGE_SIZE);
 
 export default function NewsPage() {
   return (
@@ -39,7 +46,7 @@ export default function NewsPage() {
             <div className="hidden md:flex items-center space-x-10 text-sm font-medium">
               <Link href="/" className="text-slate-600 hover:text-blue-600">首页</Link>
               <Link href="/products" className="text-slate-600 hover:text-blue-600">产品</Link>
-              <Link href="/news" className="text-blue-600 border-b-2 border-blue-600 pb-1">营养资讯</Link>
+              <Link href="/news" className="text-blue-600 border-b-2 border-blue-600 pb-1">营养百科</Link>
               <Link href="/about" className="text-slate-600 hover:text-blue-600">关于凯维他</Link>
               <Link href="/contact" className="text-slate-600 hover:text-blue-600">联系我们</Link>
             </div>
@@ -47,21 +54,22 @@ export default function NewsPage() {
         </div>
       </nav>
 
-      <main className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
+      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
         <div className="text-center mb-12">
-          <h1 className="text-4xl font-extrabold text-slate-900">营养资讯</h1>
+          <h1 className="text-4xl font-extrabold text-slate-900">营养百科</h1>
           <div className="mt-4 h-1 w-20 bg-blue-600 mx-auto rounded-full"></div>
           <p className="mt-4 text-slate-500 max-w-xl mx-auto">分享科学营养知识，助力健康生活</p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {articles.map((article) => (
+        {/* 文章网格：一行4个 */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {paginatedArticles.map((article) => (
             <Link
               key={article.slug}
               href={`/news/${article.slug}`}
-              className="group bg-white rounded-2xl border border-slate-100 shadow-sm hover:shadow-lg transition-all overflow-hidden"
+              className="group bg-white rounded-2xl border border-slate-100 shadow-sm hover:shadow-lg transition-all overflow-hidden flex flex-col"
             >
-              <div className="relative h-48 bg-slate-100">
+              <div className="relative h-40 bg-slate-100 flex-shrink-0">
                 <Image
                   src={article.coverImage}
                   alt={article.title}
@@ -69,18 +77,37 @@ export default function NewsPage() {
                   className="object-cover"
                 />
               </div>
-              <div className="p-6">
+              <div className="p-4 flex flex-col flex-grow">
                 <p className="text-xs text-slate-400">{article.date}</p>
-                <h2 className="text-xl font-bold text-slate-900 mt-2 group-hover:text-blue-600 transition">
+                <h2 className="text-base font-bold text-slate-900 mt-1 group-hover:text-blue-600 transition line-clamp-2">
                   {article.title}
                 </h2>
-                <p className="text-sm text-slate-500 mt-2 line-clamp-2">{article.summary}</p>
-                <span className="inline-block mt-4 text-blue-600 font-semibold text-sm">
+                <p className="text-xs text-slate-500 mt-1 line-clamp-2 flex-grow">
+                  {article.summary}
+                </p>
+                <span className="inline-block mt-3 text-blue-600 font-semibold text-xs">
                   阅读全文 →
                 </span>
               </div>
             </Link>
           ))}
+        </div>
+
+        {/* 分页控制 - 右下角 */}
+        <div className="flex justify-end items-center mt-8 gap-4 text-sm text-slate-600">
+          <span className="text-xs text-slate-400">
+            第 {currentPage} / {totalPages} 页
+          </span>
+          <button
+            disabled={currentPage >= totalPages}
+            className={`px-4 py-1.5 rounded-md border border-slate-200 transition ${
+              currentPage >= totalPages
+                ? "bg-slate-100 text-slate-400 cursor-not-allowed"
+                : "bg-white hover:bg-blue-50 hover:border-blue-300 text-slate-700"
+            }`}
+          >
+            下一页 →
+          </button>
         </div>
       </main>
 
