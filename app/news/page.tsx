@@ -31,6 +31,13 @@ const articles = [
     date: "2025-12-04",
     coverImage: "/news/好脂肪/好脂肪5.jpg",
   },
+  {
+    slug: "skin-hair-loss-weight-loss",
+    title: "减肥出现皮肤松弛、掉发怎么办？",
+    summary: "秋冬季节减重，皮肤松弛、掉发是常见的困扰。掌握科学方法，通过调整饮食、合理运动、正确护理，就能在成功减脂的同时，守住紧致皮肤和发量。",
+    date: "2025-11-13",
+    coverImage: "/news/皮肤松弛/皮肤松弛2.jpg",
+  },
 ];
 
 const PAGE_SIZE = 8;
