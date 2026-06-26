@@ -24,12 +24,18 @@ const articles = [
     date: "2025-12-18",
     coverImage: "/news/补够它/补够它3.jpg",
   },
-  // 后续可继续添加更多文章...
+  {
+    slug: "good-fat-weight-loss",
+    title: "这种"好脂肪"不仅帮你清血管、抗炎，更是"减脂搭档"",
+    summary: "Omega-3多不饱和脂肪酸不仅是血管里的'清道夫'，更是大脑和眼睛的'建筑师'，还是减重路上不可或缺的'神助攻'。从调节血脂、抗炎到增强减重效果，一文读懂如何科学补充这种'好脂肪'。",
+    date: "2025-12-04",
+    coverImage: "/news/好脂肪/好脂肪5.jpg",
+  },
 ];
 
 // 分页配置
-const PAGE_SIZE = 8; // 每页显示8篇文章（一行4个 × 2行）
-const currentPage = 1; // 当前页码
+const PAGE_SIZE = 8;
+const currentPage = 1;
 const totalPages = Math.ceil(articles.length / PAGE_SIZE);
 const paginatedArticles = articles.slice(0, PAGE_SIZE);
 
@@ -61,7 +67,6 @@ export default function NewsPage() {
           <p className="mt-4 text-slate-500 max-w-xl mx-auto">分享科学营养知识，助力健康生活</p>
         </div>
 
-        {/* 文章网格：一行4个 */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {paginatedArticles.map((article) => (
             <Link
@@ -93,7 +98,6 @@ export default function NewsPage() {
           ))}
         </div>
 
-        {/* 分页控制 - 右下角 */}
         <div className="flex justify-end items-center mt-8 gap-4 text-sm text-slate-600">
           <span className="text-xs text-slate-400">
             第 {currentPage} / {totalPages} 页
