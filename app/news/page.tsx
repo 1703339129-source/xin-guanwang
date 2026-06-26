@@ -52,6 +52,20 @@ const articles = [
     date: "2026-03-31",
     coverImage: "/news/补充优质蛋白/补充优质蛋白5.jpg",
   },
+  {
+    slug: "big-meal-detox",
+    title: "大餐后急救！500大卡轻断食食谱，掉秤不挨饿",
+    summary: "周末聚餐后发现体重又上涨了，不要慌，还有方法来补救。这套断食日食谱总热量仅约500大卡，大餐后执行一天，快速消水肿、稳代谢，还能保住肌肉不流失。",
+    date: "2026-04-15",
+    coverImage: "/news/大餐后救急/大餐后救急4.jpg",
+  },
+  {
+    slug: "protein-guide-for-beginners",
+    title: "蛋白粉新手全攻略！3步选对不踩坑✅",
+    summary: "减脂期喝蛋白粉，90%的人都踩过坑！作为蛋白粉品牌官方号，把新手选购+饮用全流程讲透，看完直接闭眼入。从选类型、看配料表到正确饮用指南，一步到位。",
+    date: "2026-04-13",
+    coverImage: "/news/新手全攻略/新手全攻略5.jpg",
+  },
 ];
 
 const PAGE_SIZE = 8;
