@@ -69,6 +69,20 @@ const allArticles = [
     date: "2026-04-13",
     coverImage: "/news/新手全攻略/新手全攻略5.jpg",
   },
+  {
+    slug: "fish-oil-guide",
+    title: "鱼油挑选干货｜必看✨选对才不白吃",
+    summary: "鱼油品牌太多如何挑选？今天把选鱼油的硬核标准讲透，照着选不踩坑。从纯度、浓度、结构、认证到包装，5维严选标准教你挑出优质鱼油。",
+    date: "2026-04-22",
+    coverImage: "/news/鱼油挑选干货/鱼油挑选干货1.jpg",
+  },
+  {
+    slug: "fiber-constipation",
+    title: "吃了纤维反而便秘？这2个坑90%人都踩了坑",
+    summary: "只吃纤维不喝水？吃越多越好？这两个坑90%的人都踩了。每天2000ml水分，每日25-30g膳食纤维，选对优质纤维补充剂，才能真正通便。",
+    date: "2026-04-24",
+    coverImage: "/news/纤维粉便秘/纤维粉便秘1.jpg",
+  },
 ];
 
 const PAGE_SIZE = 8;
