@@ -4,7 +4,6 @@ import Link from "next/link";
 import Image from "next/image";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
-// 测试修改
 
 const articlesData: Record<string, any> = {
   "97-people-lack-nutrient": {
@@ -368,10 +367,10 @@ const articlesData: Record<string, any> = {
 它通过**增加饱腹感、减少脂肪吸收、稳定血糖、优化肠道菌群**等机制，帮助我们更轻松、更健康地控制体重。让这个朴实的减重帮手，带你走向更健康、更苗条的生活！
     `,
   },
-  "good-fat-weight-loss": {
-    title: "这种"好脂肪"不仅帮你清血管、抗炎，更是"减脂搭档"",
-    date: "2025-12-04",
-    content: `
+"good-fat-weight-loss": {
+  title: "这种"好脂肪"不仅帮你清血管、抗炎，更是"减脂搭档"",
+  date: "2025-12-04",
+  content: `
 我是 **Omega-3 多不饱和脂肪酸**，小名是 ω-3。
 
 当其他脂肪被贴上"肥胖元凶"的标签，被减肥党避之不及的时候，我却不一样。别说要少吃，你反而得想方设法多吃、吃够我！
