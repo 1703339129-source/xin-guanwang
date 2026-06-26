@@ -38,6 +38,13 @@ const articles = [
     date: "2025-11-13",
     coverImage: "/news/皮肤松弛/皮肤松弛2.jpg",
   },
+  {
+    slug: "spring-light-meal",
+    title: "春日轻食计划✨ 减脂期也能吃的超满足！",
+    summary: "春日减脂正当时！从早餐到晚餐，搭配优质碳水、蛋白质和蔬菜，让你在减脂期也能吃得超满足。凯维他分离乳清蛋白粉，低脂高蛋白，超级饱腹。",
+    date: "2026-04-09",
+    coverImage: "/news/春日轻食计划/春日轻食计划3.jpg",
+  },
 ];
 
 const PAGE_SIZE = 8;
