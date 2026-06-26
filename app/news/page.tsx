@@ -60,7 +60,7 @@ const allArticles = [
     title: "大餐后急救！500大卡轻断食食谱，掉秤不挨饿",
     summary: "周末聚餐后发现体重又上涨了，不要慌，还有方法来补救。这套断食日食谱总热量仅约500大卡，大餐后执行一天，快速消水肿、稳代谢，还能保住肌肉不流失。",
     date: "2026-04-15",
-    coverImage: "/news/大餐后救急/大餐后救急4.jpg",
+    coverImage: "/news/大餐后急救/大餐后急救4.jpg",  // 修正路径
   },
   {
     slug: "protein-guide-for-beginners",
@@ -144,7 +144,6 @@ export default function NewsPage() {
           ))}
         </div>
 
-        {/* 分页控件 */}
         <div className="flex justify-end items-center mt-8 gap-4 text-sm text-slate-600">
           <span className="text-xs text-slate-400">
             第 {currentPage} / {totalPages} 页
