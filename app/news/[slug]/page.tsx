@@ -228,13 +228,10 @@ const articlesData: Record<string, any> = {
 ![总结](/news/蛋白粉五花八门/五花八门9.jpg)
     `,
   },
- // app/news/[slug]/page.tsx（仅显示第三篇文章的修改部分）
-// 其他文章内容保持不变
-
-"fiber-for-weight-loss": {
-  title: "补够它，真能帮你减肥、控血糖",
-  date: "2025-12-18",
-  content: `
+  "fiber-for-weight-loss": {
+    title: "补够它，真能帮你减肥、控血糖",
+    date: "2025-12-18",
+    content: `
 减重的朋友是不是经常为这些问题烦恼：
 
 明明吃得不多，却悄悄长肉？
@@ -368,14 +365,12 @@ const articlesData: Record<string, any> = {
 膳食纤维不是什么神奇的减肥药，它是我们减肥路上不可或缺的重要伙伴！
 
 它通过**增加饱腹感、减少脂肪吸收、稳定血糖、优化肠道菌群**等机制，帮助我们更轻松、更健康地控制体重。让这个朴实的减重帮手，带你走向更健康、更苗条的生活！
-  `,
-},
-// app/news/[slug]/page.tsx（仅显示新增的第四篇文章，需要合并到现有文件中）
-
-"good-fat-weight-loss": {
-  title: "这种"好脂肪"不仅帮你清血管、抗炎，更是"减脂搭档"",
-  date: "2025-12-04",
-  content: `
+    `,
+  },
+  "good-fat-weight-loss": {
+    title: "这种"好脂肪"不仅帮你清血管、抗炎，更是"减脂搭档"",
+    date: "2025-12-04",
+    content: `
 我是 **Omega-3 多不饱和脂肪酸**，小名是 ω-3。
 
 当其他脂肪被贴上"肥胖元凶"的标签，被减肥党避之不及的时候，我却不一样。别说要少吃，你反而得想方设法多吃、吃够我！
@@ -541,8 +536,8 @@ ps.最佳剂量和使用方式需进行个体化指导。
 EPA可能会影响凝血功能，对于孕妇、哺乳期妇女、患有出血性疾病、近期准备接受手术治疗的人群都得慎用。
 
 高剂量的ω-3脂肪酸可能会增加出血风险。对于鱼油成分过敏的人群也不适合补充。
-  `,
-},
+    `,
+  },
 };
 
 export default async function ArticlePage({ params }: { params: Promise<{ slug: string }> }) {
@@ -562,7 +557,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
             <div className="hidden md:flex items-center space-x-10 text-sm font-medium">
               <Link href="/" className="text-slate-600 hover:text-blue-600">首页</Link>
               <Link href="/products" className="text-slate-600 hover:text-blue-600">产品</Link>
-              <Link href="/news" className="text-blue-600 border-b-2 border-blue-600 pb-1">营养资讯</Link>
+              <Link href="/news" className="text-blue-600 border-b-2 border-blue-600 pb-1">营养百科</Link>
               <Link href="/about" className="text-slate-600 hover:text-blue-600">关于凯维他</Link>
               <Link href="/contact" className="text-slate-600 hover:text-blue-600">联系我们</Link>
             </div>
