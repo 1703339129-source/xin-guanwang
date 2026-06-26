@@ -24,16 +24,15 @@ const articles = [
     date: "2025-12-18",
     coverImage: "/news/补够它/补够它3.jpg",
   },
- {
-  slug: "good-fat-weight-loss",
-  title: "这种"好脂肪"不仅帮你清血管、抗炎，更是"减脂搭档"",
-  summary: "Omega-3多不饱和脂肪酸不仅是血管里的'清道夫'，更是大脑和眼睛的'建筑师'，还是减重路上不可或缺的'神助攻'。从调节血脂、抗炎到增强减重效果，一文读懂如何科学补充这种'好脂肪'。",
-  date: "2025-12-04",
-  coverImage: "/news/好脂肪/好脂肪5.jpg",
-},
+  {
+    slug: "good-fat-weight-loss",
+    title: "这种好脂肪不仅帮你清血管、抗炎，更是减脂搭档",
+    summary: "Omega-3多不饱和脂肪酸不仅是血管里的清道夫，更是大脑和眼睛的建筑师，还是减重路上不可或缺的神助攻。从调节血脂、抗炎到增强减重效果，一文读懂如何科学补充这种好脂肪。",
+    date: "2025-12-04",
+    coverImage: "/news/好脂肪/好脂肪5.jpg",
+  },
 ];
 
-// 分页配置
 const PAGE_SIZE = 8;
 const currentPage = 1;
 const totalPages = Math.ceil(articles.length / PAGE_SIZE);
@@ -42,7 +41,6 @@ const paginatedArticles = articles.slice(0, PAGE_SIZE);
 export default function NewsPage() {
   return (
     <div className="min-h-screen bg-white font-sans antialiased text-slate-800">
-      {/* 导航栏 */}
       <nav className="sticky top-0 z-50 border-b border-slate-100 bg-white/90 backdrop-blur-md">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex h-20 items-center justify-between">
