@@ -16,6 +16,7 @@ export default function ContactPage() {
             <div className="hidden md:flex items-center space-x-10 text-sm font-medium">
               <Link href="/" className="text-slate-600 hover:text-blue-600">首页</Link>
               <Link href="/products" className="text-slate-600 hover:text-blue-600">产品</Link>
+              <Link href="/news" className="text-slate-600 hover:text-blue-600">营养百科</Link>
               <Link href="/about" className="text-slate-600 hover:text-blue-600">关于凯维他</Link>
               <Link href="/contact" className="text-blue-600 border-b-2 border-blue-600 pb-1">联系我们</Link>
             </div>
@@ -32,8 +33,6 @@ export default function ContactPage() {
 
         <div className="max-w-3xl mx-auto">
           <div className="bg-slate-50 rounded-2xl p-8 shadow-sm text-center">
-            {/* 已删除“联系方式”标题 */}
-
             {/* 电话和地址两列并排 */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               {/* 电话 */}

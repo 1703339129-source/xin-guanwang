@@ -10,7 +10,6 @@ const productData: Record<string, any> = {
     name: "分离乳清蛋白粉",
     fullName: "分离乳清蛋白粉固体饮料",
     image: "/product-whey-blue.jpg",
-    // 更新为10张图片
     images: [
       "/分离乳清蛋白粉详情页(1).jpg",
       "/分离乳清蛋白粉详情页(2).jpg",
@@ -109,7 +108,6 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
 
   const hasMultiImages = product.images && product.images.length > 0;
   const isLargeImage = slug === "fiber" || slug === "fish-oil";
-  // 所有有 images 的产品均使用横向轮播
   const isHorizontal = hasMultiImages;
 
   return (
@@ -131,6 +129,7 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
             <div className="hidden md:flex items-center space-x-10 text-sm font-medium">
               <Link href="/" className="text-slate-600 hover:text-blue-600">首页</Link>
               <Link href="/products" className="text-slate-600 hover:text-blue-600">产品</Link>
+              <Link href="/news" className="text-slate-600 hover:text-blue-600">营养百科</Link>
               <Link href="/about" className="text-slate-600 hover:text-blue-600">关于凯维他</Link>
               <Link href="/contact" className="text-slate-600 hover:text-blue-600">联系我们</Link>
             </div>

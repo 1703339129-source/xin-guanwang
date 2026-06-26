@@ -45,6 +45,7 @@ export default function ProductsPage() {
             <div className="hidden md:flex items-center space-x-10 text-sm font-medium">
               <Link href="/" className="text-slate-600 hover:text-blue-600">首页</Link>
               <Link href="/products" className="text-blue-600 border-b-2 border-blue-600 pb-1">产品</Link>
+              <Link href="/news" className="text-slate-600 hover:text-blue-600">营养百科</Link>
               <Link href="/about" className="text-slate-600 hover:text-blue-600">关于凯维他</Link>
               <Link href="/contact" className="text-slate-600 hover:text-blue-600">联系我们</Link>
             </div>
@@ -62,7 +63,6 @@ export default function ProductsPage() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {products.map((product) => (
             <div key={product.slug} className="bg-white rounded-2xl border border-slate-100 shadow-sm transition-all hover:shadow-lg overflow-hidden flex flex-col md:flex-row h-full">
-              {/* 图片容器 */}
               <div className="md:w-2/5 bg-slate-50 p-2 flex items-center justify-center overflow-hidden">
                 <div className={`w-full h-48 flex items-center justify-center ${product.isLargeImage ? 'scale-110' : ''}`}>
                   <Image 

@@ -35,6 +35,7 @@ export default function AboutPage() {
               <div className="hidden md:flex items-center space-x-10 text-sm font-medium">
                 <Link href="/" className="text-slate-600 hover:text-blue-600">首页</Link>
                 <Link href="/products" className="text-slate-600 hover:text-blue-600">产品</Link>
+                <Link href="/news" className="text-slate-600 hover:text-blue-600">营养百科</Link>
                 <Link href="/about" className="text-blue-600 border-b-2 border-blue-600 pb-1">关于凯维他</Link>
                 <Link href="/contact" className="text-slate-600 hover:text-blue-600">联系我们</Link>
               </div>
@@ -49,6 +50,7 @@ export default function AboutPage() {
             <div className="md:hidden border-t border-slate-100 bg-white px-4 py-4 space-y-3">
               <Link href="/" onClick={() => setIsMenuOpen(false)} className="block w-full text-left text-sm font-medium text-slate-600">首页</Link>
               <Link href="/products" onClick={() => setIsMenuOpen(false)} className="block w-full text-left text-sm font-medium text-slate-600">产品</Link>
+              <Link href="/news" onClick={() => setIsMenuOpen(false)} className="block w-full text-left text-sm font-medium text-slate-600">营养百科</Link>
               <Link href="/about" onClick={() => setIsMenuOpen(false)} className="block w-full text-left text-sm font-medium text-blue-600">关于凯维他</Link>
               <Link href="/contact" onClick={() => setIsMenuOpen(false)} className="block w-full text-left text-sm font-medium text-slate-600">联系我们</Link>
             </div>
@@ -115,7 +117,7 @@ export default function AboutPage() {
               </p>
             </div>
 
-            {/* 联系信息 - 已同步为最新 */}
+            {/* 联系信息 */}
             <div className="mt-12 text-center border-t border-white/20 pt-6">
               <p className="text-white/70 text-xs">如有合作或咨询需求，欢迎联系我们</p>
               <div className="mt-3 flex flex-col sm:flex-row justify-center gap-3 text-xs text-white/60">
