@@ -1068,7 +1068,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
       <main className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
         <div className="mb-8">
           <Link href="/news" className="text-sm text-blue-600 hover:underline">
-            ← 返回资讯列表
+            ← 返回百科列表
           </Link>
         </div>
 
@@ -1093,7 +1093,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
 
         <div className="mt-12 pt-8 border-t border-slate-100">
           <Link href="/news" className="inline-block bg-blue-900 hover:bg-blue-800 text-white px-6 py-2.5 rounded-lg text-sm font-semibold transition">
-            返回资讯列表
+            返回百科列表
           </Link>
         </div>
       </main>
