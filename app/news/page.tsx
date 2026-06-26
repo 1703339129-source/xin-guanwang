@@ -1,8 +1,11 @@
 // app/news/page.tsx
+'use client';
+
+import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 
-const articles = [
+const allArticles = [
   {
     slug: "97-people-lack-nutrient",
     title: "这种97%的人都缺的营养素，让你轻松瘦下来！",
@@ -69,11 +72,21 @@ const articles = [
 ];
 
 const PAGE_SIZE = 8;
-const currentPage = 1;
-const totalPages = Math.ceil(articles.length / PAGE_SIZE);
-const paginatedArticles = articles.slice(0, PAGE_SIZE);
 
 export default function NewsPage() {
+  const [currentPage, setCurrentPage] = useState(1);
+  const totalPages = Math.ceil(allArticles.length / PAGE_SIZE);
+  const startIndex = (currentPage - 1) * PAGE_SIZE;
+  const paginatedArticles = allArticles.slice(startIndex, startIndex + PAGE_SIZE);
+
+  const handleNext = () => {
+    if (currentPage < totalPages) setCurrentPage(currentPage + 1);
+  };
+
+  const handlePrev = () => {
+    if (currentPage > 1) setCurrentPage(currentPage - 1);
+  };
+
   return (
     <div className="min-h-screen bg-white font-sans antialiased text-slate-800">
       <nav className="sticky top-0 z-50 border-b border-slate-100 bg-white/90 backdrop-blur-md">
@@ -131,11 +144,24 @@ export default function NewsPage() {
           ))}
         </div>
 
+        {/* 分页控件 */}
         <div className="flex justify-end items-center mt-8 gap-4 text-sm text-slate-600">
           <span className="text-xs text-slate-400">
             第 {currentPage} / {totalPages} 页
           </span>
           <button
+            onClick={handlePrev}
+            disabled={currentPage === 1}
+            className={`px-4 py-1.5 rounded-md border border-slate-200 transition ${
+              currentPage === 1
+                ? "bg-slate-100 text-slate-400 cursor-not-allowed"
+                : "bg-white hover:bg-blue-50 hover:border-blue-300 text-slate-700"
+            }`}
+          >
+            ← 上一页
+          </button>
+          <button
+            onClick={handleNext}
             disabled={currentPage >= totalPages}
             className={`px-4 py-1.5 rounded-md border border-slate-200 transition ${
               currentPage >= totalPages
